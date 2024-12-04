@@ -1,0 +1,60 @@
+# Visual Studio-specific
+.vscode/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+out/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependency directories
+packages/
+node_modules/
+
+# JetBrains Rider
+.idea/
+.idea_modules/
+
+# DotNet Core specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs and temporary files
+*.log
+*.tlog
+*.tmp
+*.cache
+*.pdb
+
+# Resharper
+*.DotSettings.user
+
+# Web-specific files
+wwwroot/dist/
+wwwroot/node_modules/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Entity Framework
+Migrations/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Other
+*.vsconfig
+*.directory
