@@ -3,33 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sanatorium.Views"
         mc:Ignorable="d"
-        Title="Register - SanatoriumRB" Height="480" Width="350"
+        Title="Register - SanatoriumRB" Height="500" Width="350"
         WindowStartupLocation="CenterScreen" Background="White">
 
     <Window.Resources>
-        <!-- Style for TextBox -->
+        <!-- Styles -->
         <Style TargetType="TextBox" x:Key="TextBoxStyle">
             <Setter Property="Padding" Value="10"/>
             <Setter Property="BorderBrush" Value="WhiteSmoke"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
         </Style>
 
-        <!-- Style for PasswordBox -->
+        <Style x:Key="HintTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Opacity" Value="0.7"/>
+        </Style>
+
         <Style TargetType="PasswordBox" x:Key="PasswordBoxStyle">
             <Setter Property="Padding" Value="10"/>
             <Setter Property="BorderBrush" Value="WhiteSmoke"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
         </Style>
 
-        <!-- Style for Button -->
         <Style TargetType="Button" x:Key="ButtonStyle">
             <Setter Property="Padding" Value="10"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -43,40 +43,68 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="0,0,0,-30">
-        <!-- Основное содержимое -->
-        <Border Margin="20,20,20,20" CornerRadius="10" Background="WhiteSmoke" 
-                BorderBrush="#e8e8e8" BorderThickness="1" Height="421" VerticalAlignment="Top">
-            <StackPanel Margin="20,20,20,20">
+    <Grid>
+        <Border Margin="20,20,20,59" CornerRadius="10" Background="WhiteSmoke" 
+                BorderBrush="#e8e8e8" BorderThickness="1">
+            <StackPanel Margin="20">
                 <TextBlock Text="Register" FontSize="28" FontWeight="Bold" 
                            Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <!-- Username field with watermark -->
-                <Grid Margin="0,0,0,10">
-                    <TextBox x:Name="UsernameTextBox"  
-                             Style="{StaticResource TextBoxStyle}" 
-                             VerticalAlignment="Center" />
-                    <TextBlock Text="Username" HorizontalAlignment="Left" VerticalAlignment="Center"
-                               Margin="10,0,0,0" Foreground="Gray" IsHitTestVisible="False"/>
-                </Grid>
+                <!-- Username Field -->
+                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,10"
+                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
+                        Background="White">
+                    <Grid>
+                        <TextBlock Text="Username" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="10,0,0,0" IsHitTestVisible="False"
+                                   Style="{StaticResource HintTextStyle}" 
+                                   x:Name="UsernameHintTextBlock" Visibility="Visible"/>
+                        <TextBox x:Name="UsernameTextBox"  
+                                 Height="40" VerticalAlignment="Center"
+                                 Style="{StaticResource TextBoxStyle}" 
+                                 Margin="0,0,0,0" 
+                                 GotFocus="UsernameTextBox_GotFocus" 
+                                 LostFocus="UsernameTextBox_LostFocus"/>
+                    </Grid>
+                </Border>
 
-                <!-- Email field with watermark -->
-                <Grid Margin="0,0,0,10">
-                    <TextBox x:Name="EmailTextBox"  
-                             Style="{StaticResource TextBoxStyle}" 
-                             VerticalAlignment="Center" />
-                    <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Center"
-                               Margin="10,0,0,0" Foreground="Gray" IsHitTestVisible="False"/>
-                </Grid>
+                <!-- Email Field -->
+                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,10"
+                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
+                        Background="White">
+                    <Grid>
+                        <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="10,0,0,0" IsHitTestVisible="False"
+                                   Style="{StaticResource HintTextStyle}" 
+                                   x:Name="EmailHintTextBlock" Visibility="Visible"/>
+                        <TextBox x:Name="EmailTextBox"  
+                                 Height="40" VerticalAlignment="Center"
+                                 Style="{StaticResource TextBoxStyle}" 
+                                 Margin="0,0,0,0" 
+                                 GotFocus="EmailTextBox_GotFocus" 
+                                 LostFocus="EmailTextBox_LostFocus"/>
+                    </Grid>
+                </Border>
 
-                <!-- Password field with watermark -->
-                <Grid Margin="0,0,0,20">
-                    <PasswordBox x:Name="PasswordBox" 
-                                 Style="{StaticResource PasswordBoxStyle}" />
-                    <TextBlock Text="Password" HorizontalAlignment="Left" VerticalAlignment="Center"
-                               Margin="10,0,0,0" Foreground="Gray" IsHitTestVisible="False"/>
-                </Grid>
+                <!-- Password Field -->
+                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,20"
+                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
+                        Background="White">
+                    <Grid>
+                        <TextBlock Text="Password" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="10,0,0,0" IsHitTestVisible="False"
+                                   Style="{StaticResource HintTextStyle}" 
+                                   x:Name="PasswordHintTextBlock" Visibility="Visible"/>
+                        <PasswordBox x:Name="PasswordBox"  
+                                     Height="40" VerticalAlignment="Center"
+                                     Style="{StaticResource PasswordBoxStyle}" 
+                                     Margin="0,0,0,0" 
+                                     GotFocus="PasswordBox_GotFocus" 
+                                     LostFocus="PasswordBox_LostFocus"/>
+                    </Grid>
+                </Border>
 
+                <!-- Register Button -->
                 <Button Content="Register" Click="RegisterButton_Click" Height="40" 
                         Background="#0078D4" Foreground="White" 
                         Style="{StaticResource ButtonStyle}" 

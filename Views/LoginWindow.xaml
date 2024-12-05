@@ -13,20 +13,38 @@
         <Style TargetType="TextBox" x:Key="TextBoxStyle">
             <Setter Property="Padding" Value="10"/>
             <Setter Property="BorderBrush" Value="WhiteSmoke"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <!-- Style for TextBlock as placeholder -->
+        <Style x:Key="HintTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Opacity" Value="0.7"/>
         </Style>
 
         <!-- Style for PasswordBox -->
         <Style TargetType="PasswordBox" x:Key="PasswordBoxStyle">
             <Setter Property="Padding" Value="10"/>
             <Setter Property="BorderBrush" Value="WhiteSmoke"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <!-- Style for Button -->
@@ -44,37 +62,61 @@
     </Window.Resources>
 
     <Grid>
-        <!-- Основное содержимое -->
         <Border Margin="20,20,20,59" CornerRadius="10" Background="WhiteSmoke" 
                 BorderBrush="#e8e8e8" BorderThickness="1">
             <StackPanel Margin="20">
                 <TextBlock Text="Login" FontSize="28" FontWeight="Bold" 
                            Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <TextBox x:Name="EmailTextBox"  
-                             Margin="0,0,0,10" Height="40" 
-                             Style="{StaticResource TextBoxStyle}" />
+                <!-- Email Field -->
+                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,10"
+                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
+                        Background="White">
+                    <Grid>
+                        <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="10,0,0,0" IsHitTestVisible="False"
+                                   Style="{StaticResource HintTextStyle}" 
+                                   x:Name="EmailHintTextBlock" Visibility="Visible"/>
+                        <TextBox x:Name="EmailTextBox"  
+                                 Height="40" VerticalAlignment="Center"
+                                 Style="{StaticResource TextBoxStyle}" 
+                                 Margin="0,0,0,0" 
+                                 GotFocus="EmailTextBox_GotFocus" 
+                                 LostFocus="EmailTextBox_LostFocus"/>
+                    </Grid>
+                </Border>
 
-                <PasswordBox x:Name="PasswordBox" 
-                                Margin="0,0,0,20" Height="40" 
-                                Style="{StaticResource PasswordBoxStyle}"/>
+                <!-- Password Field -->
+                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,20"
+                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
+                        Background="White">
+                    <Grid>
+                        <TextBlock Text="Password" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Margin="10,0,0,0" IsHitTestVisible="False"
+                                   Style="{StaticResource HintTextStyle}" 
+                                   x:Name="PasswordHintTextBlock" Visibility="Visible"/>
+                        <PasswordBox x:Name="PasswordBox"  
+                                     Height="40" VerticalAlignment="Center"
+                                     Style="{StaticResource PasswordBoxStyle}" 
+                                     Margin="0,0,0,0" 
+                                     GotFocus="PasswordBox_GotFocus" 
+                                     LostFocus="PasswordBox_LostFocus"/>
+                    </Grid>
+                </Border>
 
-                <!-- Кнопка внутри Border для применения CornerRadius -->
                 <Button Content="Login" Click="LoginButton_Click" Height="40" 
                         Background="#0078D4" Foreground="White" 
                         Style="{StaticResource ButtonStyle}" 
                         Margin="0,0,0,5" />
 
-                <TextBlock Text="or" HorizontalAlignment="Center" 
-                        Margin="0,5" FontWeight="Bold"/>
+                <TextBlock Text="or" HorizontalAlignment="Center" FontWeight="Bold"/>
 
                 <TextBlock Text="Don't have an account?" HorizontalAlignment="Center" 
                            Margin="0,0,0,5"/>
 
-                <!-- Кнопка внутри Border для применения CornerRadius -->
                 <Button Content="Register" Click="RegisterButton_Click" Height="40" 
-                            Background="#0078D4" Foreground="White" 
-                            Style="{StaticResource ButtonStyle}" />
+                        Background="#0078D4" Foreground="White" 
+                        Style="{StaticResource ButtonStyle}" />
             </StackPanel>
         </Border>
     </Grid>

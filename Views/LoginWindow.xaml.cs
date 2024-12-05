@@ -43,5 +43,33 @@ namespace Sanatorium.Views
             registerWindow.Show();
         }
 
+
+        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            EmailHintTextBlock.Visibility = Visibility.Collapsed;
+        }
+
+        private void EmailTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(EmailTextBox.Text))
+            {
+                EmailHintTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordHintTextBlock.Visibility = Visibility.Collapsed;
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
+            {
+                PasswordHintTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+
     }
 }

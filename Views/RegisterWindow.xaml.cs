@@ -37,12 +37,54 @@ namespace Sanatorium.Views
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             // Логика для регистрации
-            string username = UsernameTextBox.Text;
-            string email = EmailTextBox.Text;
-            string password = PasswordBox.Password;
+            string username = UsernameTextBox.Text.Trim();
+            string email = EmailTextBox.Text.Trim();
+            string password = PasswordBox.Password.Trim();
+
 
             // Логика аутентификации пользователя
             MessageBox.Show($"Пользователь: Имя: {username}, Почта: {email}, Пароль: {password}");
         }
+
+
+        private void UsernameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            UsernameHintTextBlock.Visibility = Visibility.Collapsed;
+        }
+
+        private void UsernameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
+            {
+                UsernameHintTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            EmailHintTextBlock.Visibility = Visibility.Collapsed;
+        }
+
+        private void EmailTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(EmailTextBox.Text))
+            {
+                EmailHintTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordHintTextBlock.Visibility = Visibility.Collapsed;
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
+            {
+                PasswordHintTextBlock.Visibility = Visibility.Visible;
+            }
+        }
+
     }
 }
