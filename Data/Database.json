@@ -1,0 +1,13 @@
+{
+  "Users": [
+    {
+      "Id": "0b048bed-5b65-41f9-b432-a9d6e6ae58f4",
+      "UserName": "Rqthk",
+      "Email": "rqt@gmail.com",
+      "PasswordHash": "//TRwHvj+k9lCznEkUBctg==:2ok+dOf3dSvcbDEoWx490jBMWL3hvdcM7ltxz8CEUfE=",
+      "Role": "user",
+      "Bookings": ""
+    }
+  ],
+  "Bookings": []
+}

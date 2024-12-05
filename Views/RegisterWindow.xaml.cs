@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Sanatorium.Services;
 
 namespace Sanatorium.Views
 {
@@ -24,28 +25,31 @@ namespace Sanatorium.Views
             InitializeComponent();
         }
 
+        // Обработчик клика для кнопки "Register"
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bool isAuthenticatedUser = Auth.Register(UsernameTextBox.Text.Trim(), EmailTextBox.Text.Trim(), PasswordBox.Password.Trim());
+                if (isAuthenticatedUser)
+                {
+                    LoginButton_Click(sender, e);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+            }
+        }
+
         // Обработчик клика для кнопки "Login"
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide(); // Скрытие текущего окна (RegisterWindow)
             var loginWindow = new LoginWindow(); // Открытие нового окна (LoginWindow)
             loginWindow.Show();
-
         }
-
-        // Обработчик клика для кнопки "Register"
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Логика для регистрации
-            string username = UsernameTextBox.Text.Trim();
-            string email = EmailTextBox.Text.Trim();
-            string password = PasswordBox.Password.Trim();
-
-
-            // Логика аутентификации пользователя
-            MessageBox.Show($"Пользователь: Имя: {username}, Почта: {email}, Пароль: {password}");
-        }
-
 
         private void UsernameTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
