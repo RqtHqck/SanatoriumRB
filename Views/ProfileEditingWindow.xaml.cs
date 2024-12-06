@@ -11,56 +11,39 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Sanatorium.Services;
 
 namespace Sanatorium.Views
 {
     /// <summary>
-    /// Логика взаимодействия для RegisterWindow.xaml
+    /// Логика взаимодействия для ProfileEditingWindow.xaml
     /// </summary>
-    public partial class RegisterWindow : Window
+    public partial class ProfileEditingWindow : Window
     {
-        public RegisterWindow()
+        public ProfileEditingWindow()
         {
             InitializeComponent();
         }
 
-        // Обработчик клика для кнопки "Register"
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        public void CancelButton_Click(object sender, RoutedEventArgs e) 
         {
-            try
-            {
-                bool isAuthenticatedUser = Auth.Register(UsernameTextBox.Text.Trim(), EmailTextBox.Text.Trim(), PasswordBox.Password.Trim());
-                if (isAuthenticatedUser)
-                {
-                    LoginButton_Click(sender, e);
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка: {ex.Message}");
-            }
+            this.Close();
         }
 
-        // Обработчик клика для кнопки "Login"
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        public void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide(); // Скрытие текущего окна (RegisterWindow)
-            var loginWindow = new LoginWindow(); // Открытие нового окна (LoginWindow)
-            loginWindow.Show();
+
         }
 
         private void UsernameTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            EmailHintTextBlock.Visibility = Visibility.Collapsed;
+            UsernameHintTextBlock.Visibility = Visibility.Collapsed;
         }
 
         private void UsernameTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(EmailTextBox.Text))
+            if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
             {
-                EmailHintTextBlock.Visibility = Visibility.Visible;
+                UsernameHintTextBlock.Visibility = Visibility.Visible;
             }
         }
 
@@ -89,5 +72,6 @@ namespace Sanatorium.Views
                 PasswordHintTextBlock.Visibility = Visibility.Visible;
             }
         }
+
     }
 }

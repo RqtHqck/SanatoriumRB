@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Sanatorium.Services;
 
+
 namespace Sanatorium.Views
 {
     /// <summary>

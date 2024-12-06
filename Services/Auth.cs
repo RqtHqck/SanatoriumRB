@@ -27,7 +27,7 @@ namespace Sanatorium.Services
             else
             {
                 string hashedPassword = candidate.PasswordHash;
-                bool passwordResult = PasswordHashWorker.VerifyPassword(candidatePassword, hashedPassword);
+                bool passwordResult = PasswordHashHelper.VerifyPassword(candidatePassword, hashedPassword);
                 if (passwordResult)
                 {
                     return true;
@@ -67,7 +67,7 @@ namespace Sanatorium.Services
             User candidate = db.GetUserByEmail(email);
             if (candidate == null)
             {
-                string hashedPassword = PasswordHashWorker.HashPassword(password);
+                string hashedPassword = PasswordHashHelper.HashPassword(password);
                 User newUser = new User(username, email, hashedPassword);
                 db.AddUser(newUser);
                 return true;

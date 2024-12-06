@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Sanatorium.Views;
 
 namespace Sanatorium
 {
@@ -24,5 +25,19 @@ namespace Sanatorium
         {
             InitializeComponent();
         }
+
+        public void ProfileMenuItem_Click(object sender, RoutedEventArgs e) 
+        {
+            ProfileEditingWindow profileEditing = new ProfileEditingWindow();
+
+            profileEditing.ShowDialog();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Ваш код обработки выбора в ComboBox
+        }
+
+
     }
 }

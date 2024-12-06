@@ -62,6 +62,8 @@ namespace Sanatorium.Repositories
         {
             Users.Add(user);
             Bookings = new List<Booking>();
+            Booking usBookings = new Booking(Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
+            Bookings.Add(usBookings);
             SaveData(); // Сохраняем изменения в базе
         }
 

@@ -2,12 +2,21 @@
   "Users": [
     {
       "Id": "0b048bed-5b65-41f9-b432-a9d6e6ae58f4",
-      "UserName": "Rqthk",
-      "Email": "rqt@gmail.com",
+      "UserName": "RqtHqck",
+      "Email": "rathack13@gmail.com",
       "PasswordHash": "//TRwHvj+k9lCznEkUBctg==:2ok+dOf3dSvcbDEoWx490jBMWL3hvdcM7ltxz8CEUfE=",
+      "Role": "user",
+      "Bookings": ""
+    },
+    {
+      "Id": "4ba8c039-3ebc-45dd-8b34-2e077b5d99cf",
+      "UserName": "залупамен",
+      "Email": "comic@gmail.com",
+      "PasswordHash": "N7uQyuYfbL7db3OaWx3GIA==:3nmra46OtMB2hpTT4FdcAJd2SvC3Ldb0rG+orw1YiDY=",
       "Role": "user",
       "Bookings": ""
     }
   ],
-  "Bookings": []
+  "Bookings": [
+  ]
 }

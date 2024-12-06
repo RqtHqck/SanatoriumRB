@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace Sanatorium.Utils
 {
-    public class PasswordHashWorker
+    public class PasswordHashHelper
     {
         private const int SaltSize = 16;
 
