@@ -65,7 +65,7 @@
         <Border Margin="20,20,20,59" CornerRadius="10" Background="WhiteSmoke" 
                 BorderBrush="#e8e8e8" BorderThickness="1">
             <StackPanel Margin="20">
-                <TextBlock Text="Login" FontSize="28" FontWeight="Bold" 
+                <TextBlock Text="Войти" FontSize="26" FontWeight="Bold" 
                            Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                 <!-- Email Field -->
@@ -81,8 +81,9 @@
                                  Height="40" VerticalAlignment="Center"
                                  Style="{StaticResource TextBoxStyle}" 
                                  Margin="0,0,0,0" 
-                                 GotFocus="EmailTextBox_GotFocus" 
-                                 LostFocus="EmailTextBox_LostFocus"/>
+                                 GotFocus="TextBox_GotFocus" 
+                                 LostFocus="TextBox_LostFocus"
+                                 Tag="{Binding ElementName=EmailHintTextBlock}"/>
                     </Grid>
                 </Border>
 
@@ -91,7 +92,7 @@
                         BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
                         Background="White">
                     <Grid>
-                        <TextBlock Text="Password" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        <TextBlock Text="Пароль" HorizontalAlignment="Left" VerticalAlignment="Center"
                                    Margin="10,0,0,0" IsHitTestVisible="False"
                                    Style="{StaticResource HintTextStyle}" 
                                    x:Name="PasswordHintTextBlock" Visibility="Visible"/>
@@ -100,7 +101,8 @@
                                      Style="{StaticResource PasswordBoxStyle}" 
                                      Margin="0,0,0,0" 
                                      GotFocus="PasswordBox_GotFocus" 
-                                     LostFocus="PasswordBox_LostFocus"/>
+                                     LostFocus="PasswordBox_LostFocus"
+                                     Tag="{Binding ElementName=PasswordHintTextBlock}"/>
                     </Grid>
                 </Border>
 
@@ -109,9 +111,9 @@
                         Style="{StaticResource ButtonStyle}" 
                         Margin="0,0,0,5" />
 
-                <TextBlock Text="or" HorizontalAlignment="Center" FontWeight="Bold"/>
+                <TextBlock Text="или" HorizontalAlignment="Center" FontWeight="Bold"/>
 
-                <TextBlock Text="Don't have an account?" HorizontalAlignment="Center" 
+                <TextBlock Text="Ещё нету аккаунта?" HorizontalAlignment="Center" 
                            Margin="0,0,0,5"/>
 
                 <Button Content="Register" Click="RegisterButton_Click" Height="40" 

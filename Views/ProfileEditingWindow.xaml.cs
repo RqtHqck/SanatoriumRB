@@ -9,8 +9,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Sanatorium.Models;
+using Sanatorium.Services;
+using Sanatorium.Utils;
 
 namespace Sanatorium.Views
 {
@@ -19,6 +23,7 @@ namespace Sanatorium.Views
     /// </summary>
     public partial class ProfileEditingWindow : Window
     {
+        private readonly GotLostBoxHelper _hintHelper = new GotLostBoxHelper();
         public ProfileEditingWindow()
         {
             InitializeComponent();
@@ -31,47 +36,54 @@ namespace Sanatorium.Views
 
         public void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void UsernameTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            UsernameHintTextBlock.Visibility = Visibility.Collapsed;
-        }
-
-        private void UsernameTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
+            bool resultEditing = UserService.EditProfile(UsernameTextBox.Text.Trim(), EmailTextBox.Text.Trim(), PasswordBox.Password.Trim());
+            if (resultEditing)
             {
-                UsernameHintTextBlock.Visibility = Visibility.Visible;
+                this.Close();
             }
         }
 
-        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
+        public void QuitButton_Click(object sender, RoutedEventArgs e)
         {
-            EmailHintTextBlock.Visibility = Visibility.Collapsed;
-        }
+            Window currentWindow = Application.Current.MainWindow; // Сохраняем текущее окно, которое не нужно закрывать
 
-        private void EmailTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(EmailTextBox.Text))
+            var loginWindow = new LoginWindow();
+            // Закрываем все окна, кроме текущего
+            foreach (Window window in Application.Current.Windows)
             {
-                EmailHintTextBlock.Visibility = Visibility.Visible;
+                if (window != loginWindow) 
+                {
+                    window.Close();
+                }
             }
+
+            loginWindow.Show();
+
         }
 
+
+        // Обработчик фокуса для TextBox
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            _hintHelper.TextBox_GotFocus(sender, e);
+        }
+
+        // Обработчик потери фокуса для TextBox
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            _hintHelper.TextBox_LostFocus(sender, e);
+        }
+
+        // Обработчик фокуса для PasswordBox
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            PasswordHintTextBlock.Visibility = Visibility.Collapsed;
+            _hintHelper.PasswordBox_GotFocus(sender, e);
         }
 
+        // Обработчик потери фокуса для PasswordBox
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
-            {
-                PasswordHintTextBlock.Visibility = Visibility.Visible;
-            }
+            _hintHelper.PasswordBox_LostFocus(sender, e);
         }
-
     }
 }

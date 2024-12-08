@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Profile - SanatoriumRB" Height="480" Width="350"
+        Title="Profile - SanatoriumRB" Height="617" Width="425"
         WindowStartupLocation="CenterScreen" Background="White">
 
     <Window.Resources>
@@ -50,57 +50,51 @@
         <Border Margin="20,20,20,59" CornerRadius="10" Background="WhiteSmoke" 
                 BorderBrush="#e8e8e8" BorderThickness="1">
             <StackPanel Margin="20">
-                <TextBlock Text="Изменение профиля" FontSize="20" FontWeight="Bold" 
+                <TextBlock Text="Настройки аккаунта" FontSize="20" FontWeight="Bold" 
                            Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                 <!-- Username Field -->
-                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,10"
-                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
-                        Background="White">
+                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,10" BorderThickness="1" 
+                        VerticalAlignment="Center" UseLayoutRounding="True" Background="White">
                     <Grid>
-                        <TextBlock Text="Имя пользователя" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                   Margin="10,0,0,0" IsHitTestVisible="False"
-                                   Style="{StaticResource HintTextStyle}" 
+                        <TextBlock Text="Новое Имя пользователя" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                                   Margin="10,0,0,0" IsHitTestVisible="False" Style="{StaticResource HintTextStyle}" 
                                    x:Name="UsernameHintTextBlock" Visibility="Visible"/>
-                        <TextBox x:Name="UsernameTextBox"  
-                                 Style="{StaticResource TextBoxStyle}" 
-                                 Margin="0,0,0,0" 
-                                 GotFocus="UsernameTextBox_GotFocus" 
-                                 LostFocus="UsernameTextBox_LostFocus"/>
+                        <TextBox x:Name="UsernameTextBox" Style="{StaticResource TextBoxStyle}" Margin="0,0,0,0" 
+                                 GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"
+                                 Tag="{Binding ElementName=UsernameHintTextBlock}"/>
                     </Grid>
                 </Border>
-
+                
                 <!-- Email Field -->
-                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,10"
-                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
-                        Background="White">
+                <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,10" BorderThickness="1" 
+                        VerticalAlignment="Center" UseLayoutRounding="True" Background="White">
                     <Grid>
-                        <TextBlock Text="Email" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                   Margin="10,0,0,0" IsHitTestVisible="False"
-                                   Style="{StaticResource HintTextStyle}" 
+                        <TextBlock Text="Новый Email" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                                   Margin="10,0,0,0" IsHitTestVisible="False" Style="{StaticResource HintTextStyle}" 
                                    x:Name="EmailHintTextBlock" Visibility="Visible"/>
-                        <TextBox x:Name="EmailTextBox"  
-                                 Style="{StaticResource TextBoxStyle}" 
-                                 Margin="0,0,0,0" 
-                                 GotFocus="EmailTextBox_GotFocus" 
-                                 LostFocus="EmailTextBox_LostFocus"/>
+                        <TextBox x:Name="EmailTextBox" Style="{StaticResource TextBoxStyle}" Margin="0,0,0,0" 
+                                 GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"
+                                 Tag="{Binding ElementName=EmailHintTextBlock}"/>
                     </Grid>
                 </Border>
 
                 <!-- Password Field -->
                 <Border CornerRadius="7" BorderBrush="#FFABADB3" Margin="0,0,0,20"
-                        BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
-                        Background="White">
+                    BorderThickness="1" VerticalAlignment="Center" UseLayoutRounding="True"
+                    Background="White">
                     <Grid>
                         <TextBlock Text="Пароль" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                   Margin="10,0,0,0" IsHitTestVisible="False"
-                                   Style="{StaticResource HintTextStyle}" 
-                                   x:Name="PasswordHintTextBlock" Visibility="Visible"/>
+                           Margin="10,0,0,0" IsHitTestVisible="False"
+                           Style="{StaticResource HintTextStyle}" 
+                           x:Name="PasswordHintTextBlock" Visibility="Visible"/>
                         <PasswordBox x:Name="PasswordBox"  
-                                     Style="{StaticResource PasswordBoxStyle}" 
-                                     Margin="0,0,0,0" 
-                                     GotFocus="PasswordBox_GotFocus" 
-                                     LostFocus="PasswordBox_LostFocus"/>
+                             Height="40" VerticalAlignment="Center"
+                             Style="{StaticResource PasswordBoxStyle}" 
+                             Margin="0,0,0,0" 
+                             GotFocus="PasswordBox_GotFocus" 
+                             LostFocus="PasswordBox_LostFocus"
+                             Tag="{Binding ElementName=PasswordHintTextBlock}"/>
                     </Grid>
                 </Border>
 
@@ -112,6 +106,11 @@
                 <Button Content="Отмена" Click="CancelButton_Click" Height="40" 
                         Background="#FF5E5E" Foreground="White" 
                         Style="{StaticResource ButtonStyle}" />
+
+                <Button Content="Выйти из аккаунта" Click="QuitButton_Click" Height="40" 
+                    Background="#FF5E5E" Foreground="White" 
+                    Style="{StaticResource ButtonStyle}" 
+                        Margin="0,0,0,10" />
             </StackPanel>
         </Border>
     </Grid>

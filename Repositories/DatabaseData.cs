@@ -11,5 +11,7 @@ namespace Sanatorium.Repositories
     {
         public List<User> Users { get; set; }
         public List<Booking> Bookings { get; set; }
+        //public List<Sanatorium> Sanatoriums { get; set; }
+
     }
 }

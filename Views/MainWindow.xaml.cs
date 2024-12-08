@@ -38,6 +38,5 @@ namespace Sanatorium
             // Ваш код обработки выбора в ComboBox
         }
 
-
     }
 }

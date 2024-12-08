@@ -27,5 +27,5 @@ namespace Sanatorium.Models
             Role = role;
             Bookings = string.Empty;
         }
-    }
+    } 
 }

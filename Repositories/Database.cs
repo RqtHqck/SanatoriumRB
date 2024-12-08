@@ -8,6 +8,8 @@ using System.IO;
 using Sanatorium.Models;
 using System.Windows;
 using Sanatorium.Utils;
+using Sanatorium.Services;
+using System.Security.RightsManagement;
 
 namespace Sanatorium.Repositories
 {
@@ -61,10 +63,37 @@ namespace Sanatorium.Repositories
         public void AddUser(User user)
         {
             Users.Add(user);
-            Bookings = new List<Booking>();
-            Booking usBookings = new Booking(Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid());
-            Bookings.Add(usBookings);
             SaveData(); // Сохраняем изменения в базе
+        }
+
+        public void UpdateUser(User userUpdate)
+        {
+
+            User userStored = GetUserByEmail(UserSession.GetCurrentUser().Email);
+
+            int userIndex = Users.IndexOf(userStored);
+            
+
+            if (userIndex >= 0)
+            {             
+                Users[userIndex].UserName = userUpdate.UserName;
+                Users[userIndex].Email = userUpdate.Email;
+                Users[userIndex].PasswordHash = userUpdate.PasswordHash;
+
+                SaveData();
+                UserSession.SetCurrentUser(userUpdate);
+            }
+            else
+            {
+                throw new InvalidOperationException("Не удалось найти пользователя в списке.");
+            }
+
+
+        }
+
+        public void Remove(User userRemove)
+        {
+
         }
 
         // Пример метода для поиска пользователя по Email

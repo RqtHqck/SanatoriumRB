@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Sanatorium.Services;
+using Sanatorium.Utils;
 
 
 namespace Sanatorium.Views
@@ -21,6 +22,8 @@ namespace Sanatorium.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private readonly GotLostBoxHelper _hintHelper = new GotLostBoxHelper();
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace Sanatorium.Views
         {
             try 
             {
-                bool isAuthenticatedUser = Auth.Login(EmailTextBox.Text.Trim(), PasswordBox.Password.Trim());
+                bool isAuthenticatedUser = UserService.Login(EmailTextBox.Text.Trim(), PasswordBox.Password.Trim());
                 if (isAuthenticatedUser)
                 {
                     this.Hide();
@@ -42,6 +45,7 @@ namespace Sanatorium.Views
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
+                throw;
             }
 
         }
@@ -54,33 +58,28 @@ namespace Sanatorium.Views
             registerWindow.Show();
         }
 
-
-        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
+        // Обработчик фокуса для TextBox
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            EmailHintTextBlock.Visibility = Visibility.Collapsed;
+            _hintHelper.TextBox_GotFocus(sender, e);
         }
 
-        private void EmailTextBox_LostFocus(object sender, RoutedEventArgs e)
+        // Обработчик потери фокуса для TextBox
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(EmailTextBox.Text))
-            {
-                EmailHintTextBlock.Visibility = Visibility.Visible;
-            }
+            _hintHelper.TextBox_LostFocus(sender, e);
         }
 
+        // Обработчик фокуса для PasswordBox
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            PasswordHintTextBlock.Visibility = Visibility.Collapsed;
+            _hintHelper.PasswordBox_GotFocus(sender, e);
         }
 
+        // Обработчик потери фокуса для PasswordBox
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
-            {
-                PasswordHintTextBlock.Visibility = Visibility.Visible;
-            }
+            _hintHelper.PasswordBox_LostFocus(sender, e);
         }
-
-
     }
 }

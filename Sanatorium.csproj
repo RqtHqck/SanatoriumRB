@@ -59,10 +59,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\RoomService.cs" />
+    <Compile Include="Models\RoomType.cs" />
+    <Compile Include="Models\Sanatorium.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repositories\Database.cs" />
     <Compile Include="Repositories\DatabaseData.cs" />
-    <Compile Include="Services\Auth.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\UserSession.cs" />
+    <Compile Include="Utils\GotLostBoxHelper.cs" />
     <Compile Include="Utils\PasswordHashHelper.cs" />
     <Compile Include="Utils\PathHelper.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
