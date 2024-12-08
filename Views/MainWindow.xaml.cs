@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Sanatorium.Models;
+using Sanatorium.Services;
 using Sanatorium.Views;
 
 namespace Sanatorium
@@ -24,7 +26,14 @@ namespace Sanatorium
         public MainWindow()
         {
             InitializeComponent();
+
+            User currentUser = UserSession.GetCurrentUser();
+            UserNameTextBlock.Text = currentUser.UserName;
+            BookingsTextBlock.Text = $"{(string.IsNullOrEmpty(currentUser.Bookings) ? "0" : currentUser.Bookings)}";
+
+
         }
+
 
         public void ProfileMenuItem_Click(object sender, RoutedEventArgs e) 
         {

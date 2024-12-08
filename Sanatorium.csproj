@@ -59,11 +59,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ResortCategory.cs" />
     <Compile Include="Models\Room.cs" />
-    <Compile Include="Models\RoomService.cs" />
+    <Compile Include="Models\Service.cs" />
     <Compile Include="Models\RoomType.cs" />
-    <Compile Include="Models\Sanatorium.cs" />
+    <Compile Include="Models\Resort.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repositories\Database.cs" />
     <Compile Include="Repositories\DatabaseData.cs" />

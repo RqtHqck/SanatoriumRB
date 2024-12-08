@@ -18,6 +18,10 @@ namespace Sanatorium.Repositories
         private static string DbFilePath = Path.Combine(PathHelper.ProjectRootPath, "Data", "Database.json"); // Путь к файлу
         public List<User> Users { get; set; }
         public List<Booking> Bookings { get; set; }
+        public List<Resort> Resorts { get; set; }
+        public List<Room> Rooms { get; set; }
+        public List<RoomType> RoomTypes { get; set; }
+        public List<ResortCategory> ResortCategories { get; set; }
 
         // Конструктор
         public Database()
@@ -25,6 +29,10 @@ namespace Sanatorium.Repositories
             var data = LoadData(DbFilePath);
             Users = data?.Users ?? new List<User>(); // Если данных нет, создаем пустой список пользователей
             Bookings = data?.Bookings ?? new List<Booking>();
+            Resorts = data?.Resorts ?? new List<Resort>();
+            Rooms = data?.Rooms ?? new List<Room>();
+            RoomTypes = data?.RoomTypes ?? new List<RoomType>();
+            ResortCategories = data?.ResortCategories ?? new List<ResortCategory>();
         }
 
         // Загрузка данных из JSON файла
@@ -42,7 +50,8 @@ namespace Sanatorium.Repositories
                 return new DatabaseData
                 {
                     Users = new List<User>(),
-                    Bookings = new List<Booking>()
+                    Bookings = new List<Booking>(),
+                    Resorts = new List<Resort>()
                 }; // Возвращаем пустые списки, если файл не найден
             }
         }
@@ -53,7 +62,11 @@ namespace Sanatorium.Repositories
             var data = new DatabaseData 
             { 
                 Users = Users,
-                Bookings = Bookings
+                Bookings = Bookings,
+                Resorts = Resorts,
+                Rooms = Rooms,
+                RoomTypes = RoomTypes,
+                ResortCategories = ResortCategories
             };
             var json = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented); // Сериализация в формат JSON
             File.WriteAllText(DbFilePath, json); // Запись в файл
@@ -88,11 +101,6 @@ namespace Sanatorium.Repositories
                 throw new InvalidOperationException("Не удалось найти пользователя в списке.");
             }
 
-
-        }
-
-        public void Remove(User userRemove)
-        {
 
         }
 

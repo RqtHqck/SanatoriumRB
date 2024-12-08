@@ -12,13 +12,13 @@ namespace Sanatorium.Models
     public class User
     {
         public Guid Id { get; set; }
-        public string UserName { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public string Role { get; set; }
-        public string Bookings { get; set; }
+        public String UserName { get; set; }
+        public String Email { get; set; }
+        public String PasswordHash { get; set; }
+        public String Role { get; set; }
+        public String Bookings { get; set; }
 
-        public User(string userName, string email, string passwordHash, string role = "user")
+        public User(String userName, String email, String passwordHash, String role = "user")
         {
             Id = Guid.NewGuid();
             UserName = userName;

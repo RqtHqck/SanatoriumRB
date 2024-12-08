@@ -9,6 +9,8 @@ using Sanatorium.Models;
 
 namespace Sanatorium.Services
 {
+
+
     public class UserSession
     {
         public static void SetCurrentUser(User user)

@@ -7,12 +7,12 @@ using System.Windows.Media;
 
 namespace Sanatorium.Models
 {
-    public class Sanatorium
+    public class Resort
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Description { get; set; }
+        public String Name { get; set; }
+        public String Address { get; set; }
+        public String Description { get; set; }
         private int _rating;
         public int Rating 
         {
@@ -27,11 +27,11 @@ namespace Sanatorium.Models
             }
 
         }
-        public string Contacts { get; set; }
+        public String Contacts { get; set; }
         public int TotalRooms { get; set; }
         public Guid CategoryId { get; set; }
-        public Sanatorium(String name, String address, String description, int rating, String contacts, int totalRoom, Guid categoryId)
-        {
+        public Resort(String name, String address, String description, int rating, String contacts, int totalRoom, Guid categoryId)
+        { 
             Id = Guid.NewGuid();
             Name = name;
             Address = address;

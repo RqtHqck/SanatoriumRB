@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Sanatorium.Models
 {
-    public class RoomType
+    public class Service
     {
         public Guid Id { get; set; }
         public String Name { get; set; }
-        
-        public RoomType(String name) 
-        { 
+        public Double Price { get; set; }
+
+        public Service(String name, Double price) { 
             Id = Guid.NewGuid();
             Name = name;
+            Price = price;
         }
     }
-
 }
