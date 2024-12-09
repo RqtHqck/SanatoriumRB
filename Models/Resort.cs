@@ -31,7 +31,7 @@ namespace Sanatorium.Models
         public int TotalRooms { get; set; }
         public Guid CategoryId { get; set; }
         public Resort(String name, String address, String description, int rating, String contacts, int totalRoom, Guid categoryId)
-        { 
+        {
             Id = Guid.NewGuid();
             Name = name;
             Address = address;
@@ -42,6 +42,4 @@ namespace Sanatorium.Models
             CategoryId = categoryId;
         }
     }
-
-
 }

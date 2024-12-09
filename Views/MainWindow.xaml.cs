@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Sanatorium.Models;
 using Sanatorium.Services;
+using Sanatorium.Utils;
 using Sanatorium.Views;
 
 namespace Sanatorium
@@ -23,29 +24,16 @@ namespace Sanatorium
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
-
-            User currentUser = UserSession.GetCurrentUser();
-            UserNameTextBlock.Text = currentUser.UserName;
-            BookingsTextBlock.Text = $"{(string.IsNullOrEmpty(currentUser.Bookings) ? "0" : currentUser.Bookings)}";
-
-
+            MainContent.Content = new MainContentControl(this);
         }
 
-
-        public void ProfileMenuItem_Click(object sender, RoutedEventArgs e) 
+        public void SetMainContent(UserControl newContent)
         {
-            ProfileEditingWindow profileEditing = new ProfileEditingWindow();
-
-            profileEditing.ShowDialog();
+            MainContent.Content = newContent;
         }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Ваш код обработки выбора в ComboBox
-        }
-
     }
 }

@@ -1,0 +1,41 @@
+[33mcommit 8739d9b6786e49511a5fc01bce9e117c880cd57d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ihar <rathack13@gmail.com>
+Date:   Sun Dec 8 21:48:47 2024 +0300
+
+    Models for further work created
+
+[33mcommit e6448875d9fc1ec5145369a190d0d90fc9908a74[m
+Author: Ihar <rathack13@gmail.com>
+Date:   Sun Dec 8 18:55:44 2024 +0300
+
+    Account edit function completed
+
+[33mcommit 8b9413a1ccca377e0d2dcc0dbc345428d7bab860[m
+Author: Ihar <rathack13@gmail.com>
+Date:   Sat Dec 7 00:47:02 2024 +0300
+
+    Create MainWindow.xaml. ProfileEditingWindow
+
+[33mcommit e1f54c586ffabd24822757224bd14f34b9a01bd6[m
+Author: Ihar <rathack13@gmail.com>
+Date:   Fri Dec 6 01:30:48 2024 +0300
+
+    Auth Service and logic completed. Users saves in json files. Data Validation. Booking Model logic.
+
+[33mcommit 5173b122e3d303eebe055288c750da661b95e3e2[m
+Author: Ihar <rathack13@gmail.com>
+Date:   Thu Dec 5 21:23:36 2024 +0300
+
+    Fixed Login Register windows
+
+[33mcommit f3b2ffb94cd4f85f17abe56781c7a4c527ae9cdf[m
+Author: Ihar <rathack13@gmail.com>
+Date:   Thu Dec 5 10:59:10 2024 +0300
+
+    login and register window forms created
+
+[33mcommit f925380f95c816ae72f94ad16614d673b01ea183[m
+Author: Ihar <rathack13@gmail.com>
+Date:   Wed Dec 4 17:54:30 2024 +0300
+
+    Initial commit
