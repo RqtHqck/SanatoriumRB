@@ -49,26 +49,29 @@
                 <Image x:Name="ResortImage" Height="150" Width="300" Stretch="Uniform" HorizontalAlignment="Left" Margin="0,0,0,10"/>
             </StackPanel>
 
-            <!-- Правая колонка: остальной контент и информация о комнате -->
+            <!-- Правая колонка: остальной контент и информация о санатории -->
             <StackPanel Grid.Column="1" Margin="20, 0, 0, 0">
                 <!-- Название санатория -->
                 <TextBlock x:Name="ResortNameText" FontSize="18" FontWeight="Bold" Foreground="#333"/>
                 <!-- Адрес санатория -->
-                <TextBlock x:Name="ResortAddressText" FontSize="14" Foreground="#555" Margin="0,5,0,0"/>
+                <TextBlock x:Name="ResortAddressText" FontSize="16" Foreground="#555" Margin="0,5,0,0"/>
                 <!-- Описание санатория -->
-                <TextBlock x:Name="ResortDescriptionText" FontSize="14" TextWrapping="Wrap" Foreground="#555" Margin="0,10,0,0"/>
+                <TextBlock x:Name="ResortDescriptionText" FontSize="16" TextWrapping="Wrap" Foreground="#555" Margin="0,10,0,0"/>
                 <!-- Контакты санатория -->
-                <TextBlock x:Name="ResortContactsText" FontSize="14" Foreground="#555" Margin="0,5,0,0"/>
+                <TextBlock x:Name="ResortContactsText" FontSize="16" Foreground="#555" Margin="0,5,0,0"/>
                 <!-- Рейтинг санатория -->
-                <TextBlock x:Name="ResortRatingText" FontSize="14" FontWeight="SemiBold" Foreground="#FFAA00" Margin="0,5,0,0"/>
+                <TextBlock x:Name="ResortRatingText" FontSize="16" FontWeight="SemiBold" Foreground="#FFAA00" Margin="0,5,0,0"/>
 
                 <!-- Информация о комнате -->
-                <TextBlock x:Name="RoomTypeText" FontSize="16" FontWeight="SemiBold" Foreground="#333" Margin="10, 15, 0, 0"/>
-                <TextBlock x:Name="RoomPriceText" FontSize="14" Foreground="#555" Margin="0,5,0,0"/>
-                <TextBlock x:Name="RoomCapacityText" FontSize="14" Foreground="#555" Margin="0,5,0,0"/>
+
+                <TextBlock Text="Информация о комнате" FontSize="20" FontWeight="Bold" Foreground="#333" Margin="0, 15, 0, 0"/>
+                
+                <TextBlock x:Name="RoomTypeText" FontSize="18" FontWeight="SemiBold" Foreground="#333" Margin="0, 15, 0, 0"/>
+                <TextBlock x:Name="RoomPriceText" FontSize="16" Foreground="#555" Margin="0,5,0,0"/>
+                <TextBlock x:Name="RoomCapacityText" FontSize="16" Foreground="#555" Margin="0,5,0,0"/>
 
                 <!-- Услуги для комнаты -->
-                <TextBlock x:Name="RoomServicesText" FontSize="14" Foreground="#555" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                <TextBlock x:Name="RoomServicesText" FontSize="16" Foreground="#555" Margin="0,5,0,0" TextWrapping="Wrap"/>
             </StackPanel>
         </Grid>
 

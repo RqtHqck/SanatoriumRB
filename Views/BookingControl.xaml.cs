@@ -80,7 +80,6 @@ namespace Sanatorium.Views
             }
         }
 
-
         // Заполняет ComboBox комнатами
         private void LoadRoomsForResort()
         {
@@ -102,21 +101,21 @@ namespace Sanatorium.Views
             }
         }
 
-        // Обновляет 
+        // Обработчик изменения выбранного элемента в ComboBox с комнатами
         private void RoomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (RoomComboBox.SelectedItem is ComboBoxItem selectedItem && selectedItem.Tag is Room selectedRoom)
             {
-                DisplayRoomInfo(selectedRoom); // Обновление данных о комнате
-                DisplayServices(selectedRoom); // Обновление услуг
+                DisplayRoomInfo(selectedRoom);
+                DisplayServices(selectedRoom);
             }
             else
             {
-                DisplayRoomInfo(null); // Если ничего не выбрано
+                DisplayRoomInfo(null);
             }
         }
 
-
+        // Отображение услуг, доступных для выбранной комнаты
         private void DisplayServices(Room room)
         {
             ServicesPanel.Children.Clear();
@@ -125,7 +124,8 @@ namespace Sanatorium.Views
                 var checkBox = new CheckBox
                 {
                     Content = $"{service.Name} - {service.Price} руб.",
-                    Tag = service
+                    Tag = service,
+                    FontSize = 16
                 };
 
                 checkBox.Checked += Service_Checked;
@@ -134,22 +134,25 @@ namespace Sanatorium.Views
             }
         }
 
+        // Обработчик события, когда услуга выбрана
         private void Service_Checked(object sender, RoutedEventArgs e)
         {
             CalculateTotalPrice();
         }
 
+        // Обработчик события, когда услуга отменена
         private void Service_Unchecked(object sender, RoutedEventArgs e)
         {
             CalculateTotalPrice();
         }
 
-
+        // Обработчик нажатия кнопки для расчета итоговой стоимости
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
             CalculateTotalPrice();
         }
 
+        // Расчет итоговой стоимости, учитывая стоимость комнаты и выбранных услуг
         private void CalculateTotalPrice()
         {
             var totalPrice = 0.0;
@@ -170,14 +173,17 @@ namespace Sanatorium.Views
             TotalPriceTextBlock.Text = $"Итоговая стоимость: {totalPrice} руб.";
         }
 
+        // Обработчик возврата на основной экран
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             _parentWindow.SetMainContent(new SanatoriumsControl(_parentWindow));
         }
 
+        // Обработчик бронирования
         private void BookingButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            // Логика для бронирования
         }
+
     }
 }

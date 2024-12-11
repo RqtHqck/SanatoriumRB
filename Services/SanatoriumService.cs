@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Sanatorium.Models;
+using Sanatorium.Views;
 
 namespace Sanatorium.Services
 {
@@ -19,6 +21,22 @@ namespace Sanatorium.Services
         {
             return resorts.OrderByDescending(r => r.Rating).ToList();
         }
+        
+        public static void SanatoriumCard_Click(MainWindow _parentWindow, object sender)
+        {
+            // Получаем объект Resort через Tag
+            var button = sender as Button;
+            var resort = button?.Tag as Resort;
 
+            if (resort != null)
+            {
+                // Действие при клике на карточку санатория
+                _parentWindow.SetMainContent(new BookingControl(_parentWindow, resort)); // Передаем выбранный санаторий
+            }
+            else
+            {
+                MessageBox.Show("Данные о санатории не найдены.");
+            }
+        }
     }
 }

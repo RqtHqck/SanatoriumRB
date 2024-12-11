@@ -51,14 +51,14 @@ namespace Sanatorium.Views
             {
                 var button = new Button
                 {
-                    Width = Double.NaN,  // Кнопка на всю ширину
-                    Height = Double.NaN, // Кнопка на всю высоту
-                    Padding = new Thickness(15),  // Устанавливаем паддинг
-                    Background = new SolidColorBrush(Colors.White),  // Белый цвет фона
-                    HorizontalAlignment = HorizontalAlignment.Stretch,  // Растягиваем кнопку на всю ширину
-                    VerticalAlignment = VerticalAlignment.Top,  // Выравнивание по верхнему краю
-                    HorizontalContentAlignment = HorizontalAlignment.Left,  // **Содержимое кнопки выравниваем влево**
-                    VerticalContentAlignment = VerticalAlignment.Top  // Содержимое кнопки выравниваем по верхнему краю
+                    Width = Double.NaN,  
+                    Height = Double.NaN, 
+                    Padding = new Thickness(15),  
+                    Background = new SolidColorBrush(Colors.White),  
+                    HorizontalAlignment = HorizontalAlignment.Stretch,  
+                    VerticalAlignment = VerticalAlignment.Top,  
+                    HorizontalContentAlignment = HorizontalAlignment.Left,  
+                    VerticalContentAlignment = VerticalAlignment.Top  
                 };
 
                 // Используем Grid для более гибкого управления размещением элементов
@@ -79,8 +79,8 @@ namespace Sanatorium.Views
 
                 var textPanel = new StackPanel
                 {
-                    VerticalAlignment = VerticalAlignment.Top,  // **Текст выравниваем по верхнему краю**
-                    HorizontalAlignment = HorizontalAlignment.Left  // **Текст выравниваем влево**
+                    VerticalAlignment = VerticalAlignment.Top,  
+                    HorizontalAlignment = HorizontalAlignment.Left  
                 };
 
                 var nameTextBlock = new TextBlock
@@ -142,7 +142,6 @@ namespace Sanatorium.Views
             }
         }
 
-
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             _parentWindow.SetMainContent(new MainContentControl(_parentWindow));
@@ -178,29 +177,7 @@ namespace Sanatorium.Views
 
         private void SanatoriumCard_Click(object sender, RoutedEventArgs e)
         {
-            // Получаем объект Resort через Tag
-            var button = sender as Button;
-            var resort = button?.Tag as Resort;
-
-            if (resort != null)
-            {
-                // Действие при клике на карточку санатория
-                _parentWindow.SetMainContent(new BookingControl(_parentWindow, resort)); // Передаем выбранный санаторий
-            }
-            else
-            {
-                MessageBox.Show("Данные о санатории не найдены.");
-            }
-        }
-
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            _hintHelper.TextBox_GotFocus(sender, e);
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            _hintHelper.TextBox_LostFocus(sender, e);
+            SanatoriumService.SanatoriumCard_Click(_parentWindow, sender);
         }
     }
 }

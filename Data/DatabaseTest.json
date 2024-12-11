@@ -6,7 +6,8 @@
       "Email": "rathack13@gmail.com",
       "PasswordHash": "TvdlWt6zt75YT1dChn/rpA==:p7LVBWk524+uwzu+XeURPzNhHixYmk9RhzothSDiZdU=",
       "Role": "user",
-      "Bookings": []
+      "Bookings": [],
+      "isBusy": 1
     }
   ],
   "Resorts": [
@@ -42,7 +43,8 @@
               "name": "Sauna",
               "price": 20
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     },
@@ -78,7 +80,8 @@
               "name": "Кинотеатр",
               "price": 40
             }
-          ]
+          ],
+          "isBusy": 1
         },
         {
           "id": "f7c76799-567a-48db-a1f1-2a71cbdb02b1",
@@ -94,7 +97,8 @@
               "name": "Бассейн",
               "price": 70
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     },
@@ -130,7 +134,8 @@
               "name": "Wi-Fi",
               "price": 10
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     },
@@ -161,7 +166,8 @@
               "name": "Баня",
               "price": 60
             }
-          ]
+          ],
+          "isBusy": 0
         },
         {
           "id": "77709d1d-cb44-47a5-b50c-07caac40dbd3",
@@ -171,7 +177,8 @@
           },
           "price": 800,
           "capacity": 1,
-          "services": []
+          "services": [],
+          "isBusy": 1
         }
       ]
     },
@@ -207,7 +214,8 @@
               "name": "Бассейн",
               "price": 80
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     },
@@ -238,7 +246,8 @@
               "name": "Фитнес",
               "price": 60
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     },
@@ -274,7 +283,8 @@
               "name": "Wi-Fi",
               "price": 10
             }
-          ]
+          ],
+          "isBusy": 0
         },
         {
           "id": "7cf4f6b9-396b-4c59-8fc9-bfb10bc6e9f6",
@@ -295,7 +305,8 @@
               "name": "Парковка",
               "price": 20
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     },
@@ -331,7 +342,8 @@
               "name": "Фитнес-центр",
               "price": 30
             }
-          ]
+          ],
+          "isBusy": 1
         }
       ]
     },
@@ -362,7 +374,8 @@
               "name": "Питание",
               "price": 25
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     },
@@ -398,7 +411,8 @@
               "name": "Бар",
               "price": 15
             }
-          ]
+          ],
+          "isBusy": 1
         }
       ]
     },
@@ -434,7 +448,8 @@
               "name": "Экскурсия",
               "price": 100
             }
-          ]
+          ],
+          "isBusy": 0
         }
       ]
     }

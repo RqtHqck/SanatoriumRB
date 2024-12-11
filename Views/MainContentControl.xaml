@@ -67,29 +67,17 @@
 
         <!-- Часто бронируют -->
         <TextBlock Text="Часто бронируют:" FontSize="26" FontWeight="Bold" Margin="0, 20, 0, 10" HorizontalAlignment="Center" />
-        <WrapPanel>
-            <StackPanel Margin="10" Width="200">
-                <Image Width="150" Height="100" Margin="0, 0, 20, 0" />
-                <TextBlock Text="Санаторий Крыма" FontWeight="Bold" FontSize="16" />
-                <TextBlock Text="Описание: ..." TextWrapping="Wrap" FontSize="16" />
-            </StackPanel>
-            <StackPanel Margin="10" Width="200">
-                <Image Width="150" Height="100" Margin="0, 0, 20, 0" />
-                <TextBlock Text="Санаторий Урала" FontWeight="Bold" FontSize="16" />
-                <TextBlock Text="Описание: ..." TextWrapping="Wrap" FontSize="16" />
-            </StackPanel>
-            <StackPanel Margin="10" Width="200">
-                <Image Width="150" Height="100" Margin="0, 0, 20, 0" />
-                <TextBlock Text="Санаторий Поволжья" FontWeight="Bold" FontSize="16" />
-                <TextBlock Text="Описание: ..." TextWrapping="Wrap" FontSize="16" />
-            </StackPanel>
-        </WrapPanel>
+        
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0, 20, 20, 20">
+            <WrapPanel x:Name="SanatoriumListPanel" Orientation="Horizontal" HorizontalAlignment="Left" />
+        </ScrollViewer>
+
 
         <!-- Кнопка "Все санатории" -->
 
         <Button Content="Все санатории" Style="{StaticResource ButtonStyle}" 
         HorizontalAlignment="Stretch" Click="ViewAllSanatoriums_Click" 
-        Padding="5" Margin="0, 30, 0, 10" Width="450"/>
+        Padding="5" Margin="0, 0, 0, 10" Width="450"/>
 
         <!-- Просмотр профиля -->
         <TextBlock Text="Ваш профиль:" FontSize="26" FontWeight="Bold" Margin="0, 30, 0, 5" HorizontalAlignment="Center" />
@@ -103,12 +91,12 @@
             <StackPanel Grid.Column="0" Margin="10" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 0">
                     <TextBlock Text="Имя пользователя: " FontWeight="Bold" FontSize="16" />
-                    <TextBlock x:Name="UserNameTextBlock" Text="---" FontSize="14" />
+                    <TextBlock x:Name="UserNameTextBlock" Text="---" FontSize="16" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 0">
                     <TextBlock Text="Ваши активные бронирования: " FontWeight="Bold" FontSize="16" />
-                    <TextBlock x:Name="BookingsTextBlock" Text="---" FontSize="14" />
+                    <TextBlock x:Name="BookingsTextBlock" Text="---" FontSize="16" />
                 </StackPanel>
             </StackPanel>
 
