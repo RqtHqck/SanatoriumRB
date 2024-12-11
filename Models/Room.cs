@@ -9,20 +9,18 @@ namespace Sanatorium.Models
     public class Room
     {
         public Guid Id { get; set; }
-        public Guid SanatoriumId { get; set; }
-        public Guid TypeId { get; set; }
+        public RoomType Type { get; set; }
         public Double Price {  get; set; }
-        public int RoomNumber { get; set; }
-        public bool IsBusy {  get; set; }
+        public int Capacity { get; set; }
+        public List<Service> Services { get; set; }
 
-        public Room(Guid sanatoriumId, Guid typeId, Double price, int roomNumber, bool isBusy = false)
+        public Room(RoomType type, Double price, int capacity)
         {
             Id = Guid.NewGuid();
-            SanatoriumId = sanatoriumId;
-            TypeId = typeId;
+            Type = type;
             Price = price;
-            RoomNumber = roomNumber;
-            IsBusy = isBusy;
+            Capacity = capacity;
+            Services = new List<Service>();
         }
     }
 }

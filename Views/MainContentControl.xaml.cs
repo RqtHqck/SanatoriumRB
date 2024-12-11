@@ -33,7 +33,8 @@ namespace Sanatorium.Views
             _parentWindow = parentWindow;
             User currentUser = UserSession.GetCurrentUser();
             UserNameTextBlock.Text = currentUser.UserName;
-            BookingsTextBlock.Text = $"{(string.IsNullOrEmpty(currentUser.Bookings) ? "0" : currentUser.Bookings)}";
+            BookingsTextBlock.Text = $"{(currentUser.Bookings != null && currentUser.Bookings.Count > 0 ? currentUser.Bookings.Count.ToString() : "0")}";
+
         }
         public void ProfileMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -44,18 +45,7 @@ namespace Sanatorium.Views
 
         private void ViewAllSanatoriums_Click(object sender, RoutedEventArgs e)
         {
-            _parentWindow.SetMainContent(new SanatoriumControl(_parentWindow));
-        }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            _parentWindow.SetMainContent(new SanatoriumsControl(_parentWindow));
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)

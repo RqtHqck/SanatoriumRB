@@ -22,10 +22,6 @@ namespace Sanatorium.Utils
             }
         }
 
-        public static void logRootPath()
-        {
-            Console.WriteLine(ProjectRootPath);
-        }
 
     }
 }

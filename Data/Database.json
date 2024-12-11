@@ -6,12 +6,70 @@
       "Email": "rathack13@gmail.com",
       "PasswordHash": "TvdlWt6zt75YT1dChn/rpA==:p7LVBWk524+uwzu+XeURPzNhHixYmk9RhzothSDiZdU=",
       "Role": "user",
-      "Bookings": ""
+      "Bookings": []
     }
   ],
-  "Bookings": [],
-  "Sanatoriums": [
-
+  "Resorts": [
+    {
+      "Id": "2b4b1b3f-6e27-46c3-b1b9-f12c4d8d1cf9",
+      "Name": "Санаторий «Зеленая Роща»",
+      "Address": "г. Сочи, ул. Курортный проспект, 12",
+      "Description": "Лучший санаторий для отдыха с лечением.",
+      "Rating": 2,
+      "Contacts": "+7 123 456 7890",
+      "TotalRooms": 8,
+      "NowRooms": 0,
+      "CategoryId": "a26f37d3-4c2b-41cd-bef8-b0b0cfc1e8f5",
+      "ImageUrl": "https://example.com/images/resort1.jpg"
+    },
+    {
+      "Id": "6d5ac2d4-c2a7-4f3d-9b7f-295c928a1d6a",
+      "Name": "Санаторий «Солнечное озеро»",
+      "Address": "г. Анапа, ул. Морская, 3",
+      "Description": "Уютный санаторий с прекрасным видом на озеро.",
+      "Rating": 4,
+      "Contacts": "+7 234 567 8901",
+      "TotalRooms": 10,
+      "NowRooms": 0,
+      "CategoryId": "5a08f381-5f3f-448f-8f16-75b8f1f2727d",
+      "ImageUrl": "https://example.com/images/resort2.jpg"
+    },
+    {
+      "Id": "b1f68b02-1bc9-49ed-9a94-63ff5c9e0cc6",
+      "Name": "Санаторий «Березовый уголок»",
+      "Address": "г. Ялта, ул. Ленина, 45",
+      "Description": "Санаторий с множеством лечебных процедур.",
+      "Rating": 3,
+      "Contacts": "+7 345 678 9012",
+      "TotalRooms": 8,
+      "NowRooms": 0,
+      "CategoryId": "d17c0627-e998-45be-885b-0b98be68e5fa",
+      "ImageUrl": "https://example.com/images/resort3.jpg"
+    },
+    {
+      "Id": "fe09b67b-e68b-4a5d-bfa4-56b8a08c68b2",
+      "Name": "Санаторий «Радуга»",
+      "Address": "г. Кисловодск, ул. Природная, 9",
+      "Description": "Отличное место для семейного отдыха с детьми.",
+      "Rating": 4,
+      "Contacts": "+7 456 789 0123",
+      "TotalRooms": 7,
+      "NowRooms": 0,
+      "CategoryId": "d17c0627-e998-45be-885b-0b98be68e5fa",
+      "ImageUrl": "https://example.com/images/resort4.jpg"
+    },
+    {
+      "Id": "c00a04a9-6e63-4e88-9ffb-d8d408fb5013",
+      "Name": "Санаторий «Звезда Кавказа»",
+      "Address": "г. Пятигорск, ул. Победы, 18",
+      "Description": "Роскошный курорт с минеральными водами.",
+      "Rating": 2,
+      "Contacts": "+7 567 890 1234",
+      "TotalRooms": 10,
+      "NowRooms": 0,
+      "CategoryId": "d17c0627-e998-45be-885b-0b98be68e5fa",
+      "ImageUrl": "https://example.com/images/resort5.jpg"
+    }
   ],
   "Rooms": [
 

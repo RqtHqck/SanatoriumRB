@@ -16,7 +16,7 @@ namespace Sanatorium.Models
         public String Email { get; set; }
         public String PasswordHash { get; set; }
         public String Role { get; set; }
-        public String Bookings { get; set; }
+        public List<Booking> Bookings { get; set; }
 
         public User(String userName, String email, String passwordHash, String role = "user")
         {
@@ -25,7 +25,7 @@ namespace Sanatorium.Models
             Email = email;
             PasswordHash = passwordHash;
             Role = role;
-            Bookings = string.Empty;
+            Bookings = new List<Booking>();
         }
     } 
 }

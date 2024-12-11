@@ -1,0 +1,246 @@
+{
+  "Users": [
+    {
+      "Id": "a70229ec-b923-4683-9f64-0db7974f1c57",
+      "UserName": "RqtHqck",
+      "Email": "rathack13@gmail.com",
+      "PasswordHash": "TvdlWt6zt75YT1dChn/rpA==:p7LVBWk524+uwzu+XeURPzNhHixYmk9RhzothSDiZdU=",
+      "Role": "user",
+      "Bookings": []
+    }
+  ],
+  "Resorts": [
+    {
+      "id": "c00a04a9-6e63-4e88-9ffb-d8d408fb5013",
+      "name": "Алеся Курортный комплекс",
+      "address": "г. Москва, ул. Ленина, 18",
+      "description": "Курортный комплекс с прекрасными удобствами.",
+      "rating": 5,
+      "contacts": "+7 567 890 1234",
+      "imageUrl": "Alesja.jpg",
+      "category": {
+        "categoryId": 1,
+        "categoryName": "Курорт"
+      },
+      "rooms": [
+        {
+          "id": "cf7a0f2d-cdc5-496a-940b-dfef7be5f19b",
+          "type": {
+            "id": "b94adf8b-b3ab-43cf-84e3-f6706e8e0a56",
+            "name": "Одноместный"
+          },
+          "price": 500,
+          "capacity": 1,
+          "services": [
+            {
+              "id": "b94adf8b-b3ab-43cf-84e3-f6706e8e0a56",
+              "name": "Уборка",
+              "price": 30
+            },
+            {
+              "id": "d929dc3a-6ec3-44f4-b9f3-1a25d02884da",
+              "name": "Sauna",
+              "price": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d914ff84-9c2d-4baf-8f63-92f1cdb43f8c",
+      "name": "Белая вежа",
+      "address": "г. Санкт-Петербург, ул. Московская, 22",
+      "description": "Элегантный санаторий с разнообразием услуг.",
+      "rating": 4,
+      "contacts": "+7 981 234 5678",
+      "imageUrl": "BelajaVezhajpg.jpg",
+      "category": {
+        "categoryId": 2,
+        "categoryName": "Санаторий"
+      },
+      "rooms": [
+        {
+          "id": "ed982273-5746-4be9-90b9-02b6f84eaac7",
+          "type": {
+            "id": "75fa4329-2ecf-4f01-8f26-6f3ac8b4401a",
+            "name": "Двухместный"
+          },
+          "price": 1200,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "29a0a4f0-2767-4d3e-92fa-c1f9b0e74ac2",
+              "name": "Массаж",
+              "price": 50
+            },
+            {
+              "id": "b7278df9-b88c-42ef-8857-8c7c9f4164f5",
+              "name": "Кинотеатр",
+              "price": 40
+            }
+          ]
+        },
+        {
+          "id": "f7c76799-567a-48db-a1f1-2a71cbdb02b1",
+          "type": {
+            "id": "b8dbfa0e-d5e2-4a57-b62d-cdb7b3b4c8be",
+            "name": "Семейный"
+          },
+          "price": 1800,
+          "capacity": 4,
+          "services": [
+            {
+              "id": "dabd57b4-c412-4993-81b5-d53638a93fd2",
+              "name": "Бассейн",
+              "price": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f84c5d5b-6a5d-48da-b9b1-5d4c7ef4e828",
+      "name": "Буг",
+      "address": "г. Сочи, ул. Курортная, 10",
+      "description": "Современный санаторий с потрясающими видами на море.",
+      "rating": 5,
+      "contacts": "+7 938 765 4321",
+      "imageUrl": "Bug.jpg",
+      "category": {
+        "categoryId": 3,
+        "categoryName": "Гостиница"
+      },
+      "rooms": [
+        {
+          "id": "fbe9a56a-bd1d-42d4-b0f3-347fbfbed228",
+          "type": {
+            "id": "c79a9b7d-b9b4-4c16-b6c0-2ac226218364",
+            "name": "Люкс"
+          },
+          "price": 2500,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "b7f0c05f-e4c3-4ff5-b831-dc10fbe40a6a",
+              "name": "Завтрак",
+              "price": 50
+            },
+            {
+              "id": "d42b9f5a-cb02-4205-bcf1-89cc52263513",
+              "name": "Wi-Fi",
+              "price": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b9ad7e7-bc3d-46a4-96ac-24db2404b528",
+      "name": "Нафтан",
+      "address": "г. Калуга, ул. Заводская, 5",
+      "description": "Отличное место для отдыха и восстановления.",
+      "rating": 3,
+      "contacts": "+7 495 675 9347",
+      "imageUrl": "Naftan.jpg",
+      "category": {
+        "categoryId": 4,
+        "categoryName": "Отель"
+      },
+      "rooms": [
+        {
+          "id": "bcc1d9d7-e174-4171-9d19-0a1ab7f01a56",
+          "type": {
+            "id": "ef4da604-5b29-4a26-a435-20574656d22e",
+            "name": "Стандарт"
+          },
+          "price": 1500,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "d329db9f-f1c4-4d61-9ed7-c3c64b091b3a",
+              "name": "Баня",
+              "price": 60
+            }
+          ]
+        },
+        {
+          "id": "77709d1d-cb44-47a5-b50c-07caac40dbd3",
+          "type": {
+            "id": "b37a5d72-597f-474b-b0da-7f43816c4167",
+            "name": "Одноместный"
+          },
+          "price": 800,
+          "capacity": 1,
+          "services": []
+        }
+      ]
+    },
+    {
+      "id": "a4d81ad5-cab5-4f7d-b55d-df5d506dece2",
+      "name": "Сосновый бор",
+      "address": "г. Тверь, ул. Лесная, 7",
+      "description": "Спокойный санаторий с природными термальными источниками.",
+      "rating": 4,
+      "contacts": "+7 920 478 2345",
+      "imageUrl": "SosnovyiBor.jpg",
+      "category": {
+        "categoryId": 5,
+        "categoryName": "Спа"
+      },
+      "rooms": [
+        {
+          "id": "e2f98730-4a62-4970-91f9-d4e6765b5c6f",
+          "type": {
+            "id": "96da4b4f-e3bc-4c19-8c02-1c433d0b6017",
+            "name": "Пентхаус"
+          },
+          "price": 3500,
+          "capacity": 3,
+          "services": [
+            {
+              "id": "a599c5c1-f4f7-4db5-8fe9-9b11b6b570b1",
+              "name": "Спортивный зал",
+              "price": 100
+            },
+            {
+              "id": "ee2f8641-2e8c-496d-ae2d-b4e9b2fa8a6b",
+              "name": "Бассейн",
+              "price": 80
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5f4c41f-4f71-4ae5-bcf7-df7b43040264",
+      "name": "Приднепровский",
+      "address": "г. Воронеж, ул. Центральная, 14",
+      "description": "Природный санаторий с экологически чистыми условиями.",
+      "rating": 5,
+      "contacts": "+7 473 980 1123",
+      "imageUrl": "Pridneprovskyi.jpg",
+      "category": {
+        "categoryId": 6,
+        "categoryName": "Эко-курорт"
+      },
+      "rooms": [
+        {
+          "id": "e37c9e25-c1f9-4d5f-88ab-d9f0008bc12d",
+          "type": {
+            "id": "ced0f635-cd39-4c8f-b756-394ff9083bba",
+            "name": "Люкс"
+          },
+          "price": 2200,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "8f7f2de6-9f89-43bc-9f99-62c65bba6181",
+              "name": "Фитнес",
+              "price": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

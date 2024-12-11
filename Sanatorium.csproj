@@ -67,11 +67,15 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Repositories\Database.cs" />
     <Compile Include="Repositories\DatabaseData.cs" />
+    <Compile Include="Services\SanatoriumService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\UserSession.cs" />
     <Compile Include="Utils\GotLostBoxHelper.cs" />
     <Compile Include="Utils\PasswordHashHelper.cs" />
     <Compile Include="Utils\PathHelper.cs" />
+    <Compile Include="Views\BookingControl.xaml.cs">
+      <DependentUpon>BookingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -91,9 +95,13 @@
     <Compile Include="Views\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SanatoriumControl.xaml.cs">
-      <DependentUpon>SanatoriumControl.xaml</DependentUpon>
+    <Compile Include="Views\SanatoriumsControl.xaml.cs">
+      <DependentUpon>SanatoriumsControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\BookingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,7 +122,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SanatoriumControl.xaml">
+    <Page Include="Views\SanatoriumsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +146,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Data\Database.json" />
+    <None Include="Data\DatabaseTest.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -147,6 +156,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\Images\BelajaVezhajpg.jpg" />
+    <Content Include="Data\Images\Bug.jpg" />
+    <Resource Include="Data\Images\Naftan.jpg" />
+    <Resource Include="Data\Images\Pridneprovskyi.jpg" />
+    <Resource Include="Data\Images\SosnovyiBor.jpg" />
+    <Resource Include="Data\Images\Alesja.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions />
 </Project>
