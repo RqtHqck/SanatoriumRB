@@ -54,11 +54,17 @@ namespace Sanatorium.Views
                     Width = Double.NaN,  // Кнопка на всю ширину
                     Height = Double.NaN, // Кнопка на всю высоту
                     Padding = new Thickness(15),  // Устанавливаем паддинг
-                    Background = new SolidColorBrush(Colors.White)  // Устанавливаем белый цвет фона
+                    Background = new SolidColorBrush(Colors.White),  // Белый цвет фона
+                    HorizontalAlignment = HorizontalAlignment.Stretch,  // Растягиваем кнопку на всю ширину
+                    VerticalAlignment = VerticalAlignment.Top,  // Выравнивание по верхнему краю
+                    HorizontalContentAlignment = HorizontalAlignment.Left,  // **Содержимое кнопки выравниваем влево**
+                    VerticalContentAlignment = VerticalAlignment.Top  // Содержимое кнопки выравниваем по верхнему краю
                 };
 
-                // Наполняем карточку контентом
-                var stackPanel = new StackPanel { Orientation = Orientation.Horizontal };
+                // Используем Grid для более гибкого управления размещением элементов
+                var grid = new Grid();
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(150) }); // Колонка для изображения
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }); // Колонка для текста с растяжением
 
                 var image = new Image
                 {
@@ -68,7 +74,15 @@ namespace Sanatorium.Views
                     Source = new BitmapImage(new Uri(System.IO.Path.Combine(PathHelper.ProjectRootPath, "Data", "Images", resort.ImageUrl), UriKind.RelativeOrAbsolute)) // Если есть изображение
                 };
 
-                var textPanel = new StackPanel { VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Left };
+                Grid.SetColumn(image, 0); // Устанавливаем изображение в первую колонку
+                grid.Children.Add(image);
+
+                var textPanel = new StackPanel
+                {
+                    VerticalAlignment = VerticalAlignment.Top,  // **Текст выравниваем по верхнему краю**
+                    HorizontalAlignment = HorizontalAlignment.Left  // **Текст выравниваем влево**
+                };
+
                 var nameTextBlock = new TextBlock
                 {
                     Text = resort.Name,
@@ -84,22 +98,40 @@ namespace Sanatorium.Views
                     HorizontalAlignment = HorizontalAlignment.Left
                 };
 
-                var priceTextBlock = new TextBlock
+                var contactsTextBlock = new TextBlock
                 {
-                    Text = $"Цена: {resort.getTotalPrice()} руб./сутки",
-                    FontSize = 14,
+                    Text = $"Контакты: {resort.Contacts}",
+                    FontSize = 16,
+                    Margin = new Thickness(0, 10, 0, 0),
+                    HorizontalAlignment = HorizontalAlignment.Left
+                };
+
+                var ratingTextBlock = new TextBlock
+                {
+                    Text = $"Рейтинг: {resort.Rating}",
+                    FontSize = 16,
+                    Margin = new Thickness(0, 10, 0, 0),
+                    HorizontalAlignment = HorizontalAlignment.Left
+                };
+
+                var addressTextBlock = new TextBlock
+                {
+                    Text = $"Адрес: {resort.Address}",
+                    FontSize = 16,
                     Margin = new Thickness(0, 10, 0, 0),
                     HorizontalAlignment = HorizontalAlignment.Left
                 };
 
                 textPanel.Children.Add(nameTextBlock);
+                textPanel.Children.Add(addressTextBlock);
                 textPanel.Children.Add(descriptionTextBlock);
-                textPanel.Children.Add(priceTextBlock);
+                textPanel.Children.Add(ratingTextBlock);
+                textPanel.Children.Add(contactsTextBlock);
 
-                stackPanel.Children.Add(image);
-                stackPanel.Children.Add(textPanel);
+                Grid.SetColumn(textPanel, 1); // Устанавливаем текст в вторую колонку
+                grid.Children.Add(textPanel);
 
-                button.Content = stackPanel;
+                button.Content = grid; // Устанавливаем Grid как содержимое кнопки
                 button.Tag = resort;  // Устанавливаем данные санатория в Tag
 
                 // Устанавливаем обработчик события для клика
@@ -109,6 +141,7 @@ namespace Sanatorium.Views
                 SanatoriumListPanel.Children.Add(button);
             }
         }
+
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {

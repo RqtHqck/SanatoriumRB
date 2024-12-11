@@ -157,12 +157,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\Images\BelajaVezhajpg.jpg" />
-    <Content Include="Data\Images\Bug.jpg" />
+    <Resource Include="Data\Images\Alesja.jpg" />
+    <Resource Include="Data\Images\BelajaVezha.jpg" />
+    <Resource Include="Data\Images\Bug.jpg" />
+    <Resource Include="Data\Images\Chayka.jpg" />
     <Resource Include="Data\Images\Naftan.jpg" />
     <Resource Include="Data\Images\Pridneprovskyi.jpg" />
     <Resource Include="Data\Images\SosnovyiBor.jpg" />
-    <Resource Include="Data\Images\Alesja.jpg" />
+    <Resource Include="Data\Images\Sosny.jpg" />
+    <Resource Include="Data\Images\Vyazhuti.jpg" />
+    <Resource Include="Data\Images\Zhemchuzhina.jpg" />
+    <Resource Include="Data\Images\Zhuravushka.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />

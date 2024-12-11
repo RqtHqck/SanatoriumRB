@@ -53,7 +53,7 @@
       "description": "Элегантный санаторий с разнообразием услуг.",
       "rating": 4,
       "contacts": "+7 981 234 5678",
-      "imageUrl": "BelajaVezhajpg.jpg",
+      "imageUrl": "BelajaVezha.jpg",
       "category": {
         "categoryId": 2,
         "categoryName": "Санаторий"
@@ -237,6 +237,202 @@
               "id": "8f7f2de6-9f89-43bc-9f99-62c65bba6181",
               "name": "Фитнес",
               "price": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a96e45fc-0f84-40b2-bd77-7e84e56c5b71",
+      "name": "Сосны",
+      "address": "г. Санкт-Петербург, ул. Зеленая, 12",
+      "description": "Уютный курорт в лесу с живописными пейзажами.",
+      "rating": 4,
+      "contacts": "+7 495 123 4567",
+      "imageUrl": "Sosny.jpg",
+      "category": {
+        "categoryId": 2,
+        "categoryName": "Лесной курорт"
+      },
+      "rooms": [
+        {
+          "id": "c8299ec4-9f16-4684-a3ac-575b08e937d2",
+          "type": {
+            "id": "34ab5be1-e95f-45b1-89f7-0c99b31f1cb2",
+            "name": "Двухместный"
+          },
+          "price": 700,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "f8367bfe-64d7-4d75-8471-c5d312cb91c3",
+              "name": "Бассейн",
+              "price": 50
+            },
+            {
+              "id": "73efb28b-1294-45c4-bd6e-062cb36277a7",
+              "name": "Wi-Fi",
+              "price": 10
+            }
+          ]
+        },
+        {
+          "id": "7cf4f6b9-396b-4c59-8fc9-bfb10bc6e9f6",
+          "type": {
+            "id": "a49c8b36-9d9b-4ea9-84f0-fc42bb8e0f11",
+            "name": "Люкс"
+          },
+          "price": 1200,
+          "capacity": 3,
+          "services": [
+            {
+              "id": "8f858e9a-cbf9-4bda-b75d-bf1b67ac57ab",
+              "name": "Спа-процедуры",
+              "price": 100
+            },
+            {
+              "id": "91f1f44c-0972-4235-b1b4-75f5d20c432b",
+              "name": "Парковка",
+              "price": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f15bb48-3fa0-4b93-85bc-8e49d5e6e3c1",
+      "name": "Жемчужина",
+      "address": "г. Казань, ул. Красная, 25",
+      "description": "Курорт с роскошными номерами и великолепным обслуживанием.",
+      "rating": 5,
+      "contacts": "+7 843 234 5678",
+      "imageUrl": "Zhemchuzhina.jpg",
+      "category": {
+        "categoryId": 3,
+        "categoryName": "Горный курорт"
+      },
+      "rooms": [
+        {
+          "id": "413243e9-7a2e-44b8-bc81-9a7e618572f3",
+          "type": {
+            "id": "b1a2f5e6-22ea-4cc7-b347-31c42f94aaf6",
+            "name": "Семейный"
+          },
+          "price": 850,
+          "capacity": 4,
+          "services": [
+            {
+              "id": "d90b91fc-bc38-41a3-8c5b-8f9034360a15",
+              "name": "Гидромассаж",
+              "price": 80
+            },
+            {
+              "id": "c9b1f0ac-6066-4e97-9980-98155d52980b",
+              "name": "Фитнес-центр",
+              "price": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d3925ad-59a7-4f0e-8c1b-16f089bd4b2e",
+      "name": "Журавушка",
+      "address": "г. Уфа, ул. Ярослава, 18",
+      "description": "Небольшой, но уютный курорт с множеством услуг.",
+      "rating": 3,
+      "contacts": "+7 347 765 4321",
+      "imageUrl": "Zhuravushka.jpg",
+      "category": {
+        "categoryId": 4,
+        "categoryName": "Сельский курорт"
+      },
+      "rooms": [
+        {
+          "id": "6cbcfbb1-42a1-4765-97f5-3b0fcadae1d3",
+          "type": {
+            "id": "ce80a0e3-33a3-41ae-83d9-30660eb8d909",
+            "name": "Стандарт"
+          },
+          "price": 450,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "72e94655-7a51-4743-b973-c2d8deff80e3",
+              "name": "Питание",
+              "price": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae743a42-cfa6-4f6d-b8a9-dc4a1810c457",
+      "name": "Вяжути",
+      "address": "г. Волгоград, ул. Пушкинская, 50",
+      "description": "Санаторий в историческом центре города.",
+      "rating": 4,
+      "contacts": "+7 844 567 8901",
+      "imageUrl": "Vyazhuti.jpg",
+      "category": {
+        "categoryId": 5,
+        "categoryName": "Морской курорт"
+      },
+      "rooms": [
+        {
+          "id": "8abef3c6-cb2d-43f1-88cf-f48d6c5dbeb6",
+          "type": {
+            "id": "b62215d8-1688-4639-a39b-89078db228c0",
+            "name": "Однокомнатный"
+          },
+          "price": 600,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "1d6f2c2b-2f57-493a-b19d-5f0c4bc96ca7",
+              "name": "Кинотеатр",
+              "price": 40
+            },
+            {
+              "id": "ddcf278a-f3c7-47f4-b59e-7b451a16fe8b",
+              "name": "Бар",
+              "price": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2c022d64-e8d2-4ac5-bad6-bf2ac1fd2325",
+      "name": "Чайка",
+      "address": "г. Краснодар, ул. Победы, 30",
+      "description": "Курорт с прекрасными условиями для отдыха и восстановления.",
+      "rating": 5,
+      "contacts": "+7 861 234 5678",
+      "imageUrl": "Chayka.jpg",
+      "category": {
+        "categoryId": 6,
+        "categoryName": "Тропический курорт"
+      },
+      "rooms": [
+        {
+          "id": "5ac8cd26-35f7-4294-a204-e1794f7a08c5",
+          "type": {
+            "id": "874d50d7-8b72-4c3a-8f99-c85b81b01ab6",
+            "name": "Супериор"
+          },
+          "price": 1500,
+          "capacity": 2,
+          "services": [
+            {
+              "id": "1e88f9bc-58ab-46c7-8205-29ff3033b522",
+              "name": "Массаж",
+              "price": 70
+            },
+            {
+              "id": "56a66ff0-cff7-4d02-a3b1-09f4b324d274",
+              "name": "Экскурсия",
+              "price": 100
             }
           ]
         }

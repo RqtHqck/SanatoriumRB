@@ -39,6 +39,7 @@ namespace Sanatorium.Views
             LoadRoomsForResort();
         }
 
+        // Показывает инфу по санаториуму
         private void DisplayResortInfo()
         {
             if (_selectedResort != null)
@@ -55,11 +56,32 @@ namespace Sanatorium.Views
                 }
                 else
                 {
-                    ResortImage.Source = null; // Clear the image if the URL is empty
+                    ResortImage.Source = null;
                 }
             }
         }
 
+        // Показывает инфу по выбранной комнате
+        private void DisplayRoomInfo(Room room)
+        {
+            if (room != null)
+            {
+                RoomTypeText.Text = $"Тип комнаты: {room.Type.Name}";
+                RoomPriceText.Text = $"Стоимость: {room.Price} руб./сутки";
+                RoomCapacityText.Text = $"Вместимость: {room.Capacity} чел.";
+                RoomServicesText.Text = $"Услуги: {string.Join(", ", room.Services.Select(s => s.Name))}";
+            }
+            else
+            {
+                RoomTypeText.Text = "Тип комнаты: -";
+                RoomPriceText.Text = "Стоимость: -";
+                RoomCapacityText.Text = "Вместимость: -";
+                RoomServicesText.Text = "Услуги: -";
+            }
+        }
+
+
+        // Заполняет ComboBox комнатами
         private void LoadRoomsForResort()
         {
             RoomComboBox.Items.Clear();
@@ -80,13 +102,20 @@ namespace Sanatorium.Views
             }
         }
 
+        // Обновляет 
         private void RoomComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (RoomComboBox.SelectedItem is ComboBoxItem selectedItem && selectedItem.Tag is Room selectedRoom)
             {
-                DisplayServices(selectedRoom);
+                DisplayRoomInfo(selectedRoom); // Обновление данных о комнате
+                DisplayServices(selectedRoom); // Обновление услуг
+            }
+            else
+            {
+                DisplayRoomInfo(null); // Если ничего не выбрано
             }
         }
+
 
         private void DisplayServices(Room room)
         {
@@ -115,6 +144,12 @@ namespace Sanatorium.Views
             CalculateTotalPrice();
         }
 
+
+        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        {
+            CalculateTotalPrice();
+        }
+
         private void CalculateTotalPrice()
         {
             var totalPrice = 0.0;
@@ -135,14 +170,14 @@ namespace Sanatorium.Views
             TotalPriceTextBlock.Text = $"Итоговая стоимость: {totalPrice} руб.";
         }
 
-        private void CalculateButton_Click(object sender, RoutedEventArgs e)
-        {
-            CalculateTotalPrice();
-        }
-
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            _parentWindow.SetMainContent(new MainContentControl(_parentWindow));
+            _parentWindow.SetMainContent(new SanatoriumsControl(_parentWindow));
+        }
+
+        private void BookingButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

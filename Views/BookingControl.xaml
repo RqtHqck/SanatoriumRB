@@ -32,7 +32,7 @@
     <Grid Background="#F7F7F7">
         <!-- Кнопка "Назад" в правом верхнем углу -->
         <Button x:Name="BackButton" Content="Назад" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Right" 
-                Margin="10" FontSize="14" Padding="10" Background="#FF6F61" Cursor="Hand" />
+                Margin="10" FontSize="14" Padding="10" Background="#FF6F61" Cursor="Hand" Click="BackButton_Click"/>
 
         <!-- Основной контейнер с двумя колонками -->
         <Grid Margin="20, 40, 20, 20" VerticalAlignment="Top">
@@ -91,7 +91,7 @@
         <!-- Кнопка для подсчета стоимости -->
         <Grid Margin="20,415,0,0">
             <Button x:Name="BookingButton" Content="Бронировать" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                    FontSize="14" Padding="10" Background="#FF6F61" Cursor="Hand" Width="282"/>
+                    FontSize="14" Padding="10" Background="#FF6F61" Cursor="Hand" Width="282" Click="BookingButton_Click"/>
         </Grid>
     </Grid>
 </UserControl>

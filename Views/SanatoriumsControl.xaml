@@ -77,8 +77,6 @@
             <ComboBox Style="{StaticResource ComboBoxStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0"
                       SelectionChanged="ComboBox_SelectionChanged" Width="250">
                 <ComboBoxItem Content="Сортировка по названию" Tag="Name"/>
-                <ComboBoxItem Content="Сначала дешевле" Tag="PriceInc"/>
-                <ComboBoxItem Content="Сначала дороже" Tag="PriceDec"/>
                 <ComboBoxItem Content="Сортировка по рейтингу" Tag="Rating"/>
             </ComboBox>
 

@@ -19,5 +19,6 @@ namespace Sanatorium.Services
         {
             return resorts.OrderByDescending(r => r.Rating).ToList();
         }
+
     }
 }
