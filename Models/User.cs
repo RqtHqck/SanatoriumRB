@@ -15,17 +15,15 @@ namespace Sanatorium.Models
         public String UserName { get; set; }
         public String Email { get; set; }
         public String PasswordHash { get; set; }
-        public String Role { get; set; }
         public List<Booking> Bookings { get; set; }
 
-        public User(String userName, String email, String passwordHash, String role = "user")
+        public User(String userName, String email, String passwordHash, List<Booking> bookings)
         {
             Id = Guid.NewGuid();
             UserName = userName;
             Email = email;
             PasswordHash = passwordHash;
-            Role = role;
-            Bookings = new List<Booking>();
+            Bookings = bookings ?? new List<Booking>();
         }
     } 
 }

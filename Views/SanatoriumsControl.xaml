@@ -40,6 +40,17 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#2C66B2"/>
@@ -75,13 +86,13 @@
 
             <!-- Кнопка сортировки -->
             <ComboBox Style="{StaticResource ComboBoxStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0"
-                      SelectionChanged="ComboBox_SelectionChanged" Width="250">
+                      SelectionChanged="ComboBox_SelectionChanged" Width="250" x:Name="FiltersComboBox" >
                 <ComboBoxItem Content="Все" Tag="All"/>
                 <ComboBoxItem Content="Сортировка по названию" Tag="Name"/>
                 <ComboBoxItem Content="Сортировка по рейтингу" Tag="Rating"/>
                 <ComboBoxItem Content="Показать не занятые" Tag="IsNotBusy"/>
                 <ComboBoxItem Content="Показать занятые" Tag="IsBusy"/>
-            </ComboBox>
+            </ComboBox> 
 
             <!-- Кнопка назад -->
             <Button Content="Назад" Style="{StaticResource ButtonStyle}" 

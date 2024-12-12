@@ -21,6 +21,17 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#2C66B2"/>
@@ -32,7 +43,7 @@
     <Grid Background="#F7F7F7">
         <!-- Кнопка "Назад" в правом верхнем углу -->
         <Button x:Name="BackButton" Content="Назад" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Right" 
-                Margin="10" FontSize="14" Padding="10" Background="#FF6F61" Cursor="Hand" Click="BackButton_Click"/>
+                Margin="10" FontSize="14" Padding="10" Background="#3D78D1" Cursor="Hand" Click="BackButton_Click"/>
 
         <!-- Основной контейнер с двумя колонками -->
         <Grid Margin="20, 40, 20, 20" VerticalAlignment="Top">
@@ -69,16 +80,17 @@
                 <TextBlock x:Name="RoomTypeText" FontSize="18" FontWeight="SemiBold" Foreground="#333" Margin="0, 15, 0, 0"/>
                 <TextBlock x:Name="RoomPriceText" FontSize="16" Foreground="#555" Margin="0,5,0,0"/>
                 <TextBlock x:Name="RoomCapacityText" FontSize="16" Foreground="#555" Margin="0,5,0,0"/>
-
-                <!-- Услуги для комнаты -->
                 <TextBlock x:Name="RoomServicesText" FontSize="16" Foreground="#555" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                <TextBlock x:Name="RoomOccupancyText" FontSize="16" FontWeight="Bold" Foreground="#FF6F61" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                
             </StackPanel>
         </Grid>
 
         <!-- Контейнер для выбора комнаты -->
         <Grid Margin="20,225,0,0">
-            <ComboBox x:Name="RoomComboBox" Width="300" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                      FontSize="14" Padding="10, 5" BorderBrush="#B0B0B0" BorderThickness="1" SelectionChanged="RoomComboBox_SelectionChanged"/>
+            <ComboBox x:Name="RoomComboBox" Width="300" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"
+                      FontSize="14" Padding="10, 5" BorderBrush="#B0B0B0" BorderThickness="1" SelectionChanged="RoomComboBox_SelectionChanged">
+            </ComboBox>
         </Grid>
 
         <!-- Панель для отображения доступных услуг -->

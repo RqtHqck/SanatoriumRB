@@ -13,17 +13,17 @@ namespace Sanatorium.Models
         public Guid UserId { get; set; }
         public Guid ResortId { get; set; }
         public Guid RoomId { get; set; }
-        public List<Service> SelectedServices { get; set; } // Услуги, выбранные для этой комнаты
-        //public String Date { get; set; }
+        public Double TotalPrice { get; set; }
+        public List<Service> SelectedServices { get; set; }
 
-        public Booking(Guid userId, Guid resortId, Guid roomId, List<Service> selectedServices) 
+        public Booking(Guid userId, Guid resortId, Guid roomId, Double totalPrice, List<Service> selectedServices = null) 
         {
             Id = Guid.NewGuid();
             UserId = userId;
             ResortId = resortId;
             RoomId = roomId;
+            TotalPrice = totalPrice;
             SelectedServices = selectedServices ?? new List<Service>();
-
         }
     }
 }

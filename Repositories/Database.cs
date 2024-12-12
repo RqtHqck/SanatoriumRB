@@ -91,6 +91,7 @@ namespace Sanatorium.Repositories
                 Users[userIndex].UserName = userUpdate.UserName;
                 Users[userIndex].Email = userUpdate.Email;
                 Users[userIndex].PasswordHash = userUpdate.PasswordHash;
+                Users[userIndex].Bookings = userUpdate.Bookings;
 
                 SaveData();
                 UserSession.SetCurrentUser(userUpdate);
@@ -111,82 +112,36 @@ namespace Sanatorium.Repositories
             return Resorts;
         }
 
-        public List<Room> GetAllRooms()
+        public Resort GetResortById(Guid resortId)
         {
             List<Resort> resorts = GetAllResorts();
-            var allRooms = new List<Room>();
-            foreach (var resort in resorts)
-            {
-                allRooms.AddRange(resort.Rooms);
-            }
-
-            return allRooms;
+            return resorts.FirstOrDefault(resort => resort.Id == resortId);
         }
 
-        public void AddServiceToBooking(Guid bookingId, Service service)
+        public void UpdateResort(Guid resortId, Guid roomId)
         {
-            var booking = Bookings.FirstOrDefault(b => b.Id == bookingId);
-            if (booking == null)
+            // Находим санаторий по идентификатору
+            Resort resortToUpdate = Resorts.FirstOrDefault(r => r.Id == resortId);
+
+            if (resortToUpdate == null)
             {
-                throw new InvalidOperationException("Бронирование не найдено.");
+                throw new InvalidOperationException($"Санаторий не найден.");
             }
 
-            booking.SelectedServices.Add(service);
-            SaveData(); // Сохраняем данные после изменения
+            // Находим комнату в указанном санатории
+            Room roomToUpdate = resortToUpdate.Rooms.FirstOrDefault(r => r.Id == roomId);
+
+            if (roomToUpdate == null)
+            {
+                throw new InvalidOperationException($"Комната не найдена в санатории {resortToUpdate.Name}.");
+            }
+            if (roomToUpdate.IsBusy)
+            {
+                throw new InvalidOperationException($"Комната уже занята.");
+            }
+
+            roomToUpdate.IsBusy = true;
+            SaveData();
         }
-
-        // Получить все услуги для санатория
-        public List<Service> GetServicesByResort(Guid resortId)
-        {
-            var resort = Resorts.FirstOrDefault(r => r.Id == resortId);
-            if (resort != null)
-            {
-                return resort.Rooms.SelectMany(r => r.Services).ToList();
-            }
-            throw new InvalidOperationException("Санаторий не найден.");
-        }
-
-        // Получить все услуги для комнаты
-        public List<Service> GetServicesByRoom(Guid roomId)
-        {
-            var room = Rooms.FirstOrDefault(r => r.Id == roomId);
-            if (room != null)
-            {
-                return room.Services;
-            }
-            throw new InvalidOperationException("Комната не найдена.");
-        }
-
-        // Получить все категории санаториев
-        public List<ResortCategory> GetAllCategories()
-        {
-            return ResortCategories;
-        }
-
-        public double CalculateBookingTotalPrice(Guid bookingId)
-        {
-            var booking = Bookings.FirstOrDefault(b => b.Id == bookingId);
-            if (booking == null)
-            {
-                throw new InvalidOperationException("Бронирование не найдено.");
-            }
-
-            var room = Rooms.FirstOrDefault(r => r.Id == booking.RoomId);
-            if (room == null)
-            {
-                throw new InvalidOperationException("Комната не найдена.");
-            }
-
-            double totalPrice = room.Price; // Начальная цена за комнату
-
-            // Добавляем стоимость услуг
-            foreach (var service in booking.SelectedServices)
-            {
-                totalPrice += service.Price;
-            }
-
-            return totalPrice;
-        }
-
     }
 }

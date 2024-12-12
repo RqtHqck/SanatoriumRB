@@ -34,6 +34,8 @@ namespace Sanatorium.Views
         {
             InitializeComponent();
 
+            FiltersComboBox.SelectedIndex = 0; // установлено значение в фильтрах (все)
+
             var db = new Database();
             List<Resort> resorts = db.GetAllResorts();
             _parentWindow = parentWindow;
@@ -51,14 +53,14 @@ namespace Sanatorium.Views
             {
                 var button = new Button
                 {
-                    Width = Double.NaN,  
-                    Height = Double.NaN, 
-                    Padding = new Thickness(15),  
-                    Background = new SolidColorBrush(Colors.White),  
-                    HorizontalAlignment = HorizontalAlignment.Stretch,  
-                    VerticalAlignment = VerticalAlignment.Top,  
-                    HorizontalContentAlignment = HorizontalAlignment.Left,  
-                    VerticalContentAlignment = VerticalAlignment.Top  
+                    Width = Double.NaN,
+                    Height = Double.NaN,
+                    Padding = new Thickness(15),
+                    Background = new SolidColorBrush(Colors.White),
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalContentAlignment = HorizontalAlignment.Left,
+                    VerticalContentAlignment = VerticalAlignment.Top
                 };
 
                 // Используем Grid для более гибкого управления размещением элементов

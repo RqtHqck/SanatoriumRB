@@ -63,7 +63,7 @@ namespace Sanatorium.Services
                 if (candidate == null)
                 {
                     string hashedPassword = PasswordHashHelper.HashPassword(password);
-                    User newUser = new User(username, email, hashedPassword);
+                    User newUser = new User(username, email, hashedPassword, null);
                     db.AddUser(newUser);
                     return true;
                 }
@@ -98,7 +98,7 @@ namespace Sanatorium.Services
                 }
 
                 string passwordNewHashed = PasswordHashHelper.HashPassword(password);
-                User newUser = new User(username, email, passwordNewHashed);
+                User newUser = new User(username, email, passwordNewHashed, null);
                 db.UpdateUser(newUser);
 
                 return true;
