@@ -113,14 +113,15 @@ namespace Sanatorium.Repositories
 
         public List<Room> GetAllRooms()
         {
-            return Rooms;
-        }
+            List<Resort> resorts = GetAllResorts();
+            var allRooms = new List<Room>();
+            foreach (var resort in resorts)
+            {
+                allRooms.AddRange(resort.Rooms);
+            }
 
-        public Resort GetResortByName(string name)
-        {
-            return Resorts.FirstOrDefault(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            return allRooms;
         }
-
 
         public void AddServiceToBooking(Guid bookingId, Service service)
         {

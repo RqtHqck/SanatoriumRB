@@ -76,8 +76,11 @@
             <!-- Кнопка сортировки -->
             <ComboBox Style="{StaticResource ComboBoxStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0"
                       SelectionChanged="ComboBox_SelectionChanged" Width="250">
+                <ComboBoxItem Content="Все" Tag="All"/>
                 <ComboBoxItem Content="Сортировка по названию" Tag="Name"/>
                 <ComboBoxItem Content="Сортировка по рейтингу" Tag="Rating"/>
+                <ComboBoxItem Content="Показать не занятые" Tag="IsNotBusy"/>
+                <ComboBoxItem Content="Показать занятые" Tag="IsBusy"/>
             </ComboBox>
 
             <!-- Кнопка назад -->
@@ -90,8 +93,5 @@
             <StackPanel x:Name="SanatoriumListPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
             </StackPanel>
         </ScrollViewer>
-
-
-
     </Grid>
 </UserControl>

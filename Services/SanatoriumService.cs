@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Sanatorium.Models;
+using Sanatorium.Repositories;
 using Sanatorium.Views;
 
 namespace Sanatorium.Services
@@ -22,6 +23,15 @@ namespace Sanatorium.Services
             return resorts.OrderByDescending(r => r.Rating).ToList();
         }
         
+        public static List<Resort> FilterByOcupancyExists(List<Resort> resorts)
+        { 
+            return resorts.Where(resort => resort.Rooms.Any(room => room.IsBusy == 0)).ToList();
+        }
+        public static List<Resort> FilterByOcupancNotExists(List<Resort> resorts)
+        {
+            return resorts.Where(resort => resort.Rooms.Any(room => room.IsBusy == 1)).ToList();
+        }
+
         public static void SanatoriumCard_Click(MainWindow _parentWindow, object sender)
         {
             // Получаем объект Resort через Tag

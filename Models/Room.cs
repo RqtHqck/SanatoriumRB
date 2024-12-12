@@ -12,6 +12,8 @@ namespace Sanatorium.Models
         public RoomType Type { get; set; }
         public Double Price {  get; set; }
         public int Capacity { get; set; }
+
+        public int IsBusy { get; set; }
         public List<Service> Services { get; set; }
 
         public Room(RoomType type, Double price, int capacity)

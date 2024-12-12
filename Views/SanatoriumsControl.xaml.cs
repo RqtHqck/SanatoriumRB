@@ -160,15 +160,25 @@ namespace Sanatorium.Views
                 // Логика сортировки
                 _resorts = _database.GetAllResorts();
                 List<Resort> resortsSorted;
-                var db = new Database();
                 switch (sortType)
                 {
+                    case "All":
+                        RenderSanatoriums(_resorts);
+                        break;
                     case "Name":
                         resortsSorted = SanatoriumService.SortByName(_resorts);
                         RenderSanatoriums(resortsSorted);
                         break;
                     case "Rating":
                         resortsSorted = SanatoriumService.SortByRating(_resorts);
+                        RenderSanatoriums(resortsSorted);
+                        break;
+                    case "IsNotBusy":
+                        resortsSorted = SanatoriumService.FilterByOcupancyExists(_resorts);
+                        RenderSanatoriums(resortsSorted);
+                        break;
+                    case "IsBusy":
+                        resortsSorted = SanatoriumService.FilterByOcupancNotExists(_resorts);
                         RenderSanatoriums(resortsSorted);
                         break;
                 }

@@ -9,7 +9,7 @@ with open("DatabaseTest.json", "r", encoding="utf-8") as file:
 def add_is_busy(data):
     # Добавляем isBusy для пользователей
     for user in data.get("Users", []):
-        user["isBusy"] = random.randint(0, 1)
+        user["isBusy"] = random.randint(False, True)
     
     # Добавляем isBusy для курортов
     for resort in data.get("Resorts", []):

@@ -6,8 +6,7 @@
       "Email": "rathack13@gmail.com",
       "PasswordHash": "TvdlWt6zt75YT1dChn/rpA==:p7LVBWk524+uwzu+XeURPzNhHixYmk9RhzothSDiZdU=",
       "Role": "user",
-      "Bookings": [],
-      "isBusy": 1
+      "Bookings": []
     }
   ],
   "Resorts": [
@@ -81,7 +80,7 @@
               "price": 40
             }
           ],
-          "isBusy": 1
+          "isBusy": 0
         },
         {
           "id": "f7c76799-567a-48db-a1f1-2a71cbdb02b1",
@@ -178,7 +177,7 @@
           "price": 800,
           "capacity": 1,
           "services": [],
-          "isBusy": 1
+          "isBusy": 0 
         }
       ]
     },
