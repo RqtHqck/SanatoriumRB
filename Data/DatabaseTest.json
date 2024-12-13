@@ -13,6 +13,14 @@
           "RoomId": "d456432a-b129-4d4e-8e71-38c423576987",
           "TotalPrice": 15.0,
           "SelectedServices": []
+        },
+        {
+          "Id": "1cd2e427-3e63-44b9-a708-b115ad9e2322",
+          "UserId": "a70229ec-b923-4683-9f64-0db7974f1c57",
+          "ResortId": "f84c5d5b-6a5d-48da-b9b1-5d4c7ef4e828",
+          "RoomId": "9c5d6784-5d7e-45b2-8a3f-6747c3c6e012",
+          "TotalPrice": 15.0,
+          "SelectedServices": []
         }
       ]
     }
@@ -161,7 +169,7 @@
           },
           "Price": 300.0,
           "Capacity": 4,
-          "IsBusy": false,
+          "IsBusy": true,
           "Services": [
             {
               "Id": "e4c7a9d1-f2f1-4a78-bf3c-82923a87d4f2",

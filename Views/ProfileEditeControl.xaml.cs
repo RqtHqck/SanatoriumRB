@@ -9,29 +9,30 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Sanatorium.Models;
 using Sanatorium.Services;
 using Sanatorium.Utils;
 
 namespace Sanatorium.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ProfileEditingWindow.xaml
+    /// Логика взаимодействия для ProfileEditeControl.xaml
     /// </summary>
-    public partial class ProfileEditingWindow : Window
+    public partial class ProfileEditeControl : UserControl
     {
         private readonly GotLostBoxHelper _hintHelper = new GotLostBoxHelper();
-        public ProfileEditingWindow()
+        private ProfileWindow _parentWindow;
+
+        public ProfileEditeControl(ProfileWindow parentWindow)
         {
             InitializeComponent();
+            _parentWindow = parentWindow;
         }
-
-        public void CancelButton_Click(object sender, RoutedEventArgs e) 
+        public void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            _parentWindow.SetMainContent(new ProfileControl(_parentWindow));
         }
 
         public void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -39,7 +40,7 @@ namespace Sanatorium.Views
             bool resultEditing = UserService.EditProfile(UsernameTextBox.Text.Trim(), EmailTextBox.Text.Trim(), PasswordBox.Password.Trim());
             if (resultEditing)
             {
-                this.Close();
+                _parentWindow.Close();
             }
         }
 
@@ -51,7 +52,7 @@ namespace Sanatorium.Views
             // Закрываем все окна, кроме текущего
             foreach (Window window in Application.Current.Windows)
             {
-                if (window != loginWindow) 
+                if (window != loginWindow)
                 {
                     window.Close();
                 }
@@ -85,5 +86,6 @@ namespace Sanatorium.Views
         {
             _hintHelper.PasswordBox_LostFocus(sender, e);
         }
+
     }
 }

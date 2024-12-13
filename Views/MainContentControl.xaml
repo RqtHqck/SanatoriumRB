@@ -79,7 +79,7 @@
         <!-- Часто бронируют -->
         <TextBlock Text="Часто бронируют:" FontSize="26" FontWeight="Bold" Margin="0, 20, 0, 10" HorizontalAlignment="Center" />
         
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0, 20, 20, 20">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0, 20, 20, 20" Padding="5">
             <WrapPanel x:Name="SanatoriumListPanel" Orientation="Horizontal" HorizontalAlignment="Left" />
         </ScrollViewer>
 

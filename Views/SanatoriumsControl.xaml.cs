@@ -28,7 +28,7 @@ namespace Sanatorium.Views
         private readonly GotLostBoxHelper _hintHelper = new GotLostBoxHelper();
         private MainWindow _parentWindow; // Родительское окно
         private Database _database = new Database();
-        private List<Resort> _resorts;
+        private List<Resort> Resorts {  get; set; }
 
         public SanatoriumsControl(MainWindow parentWindow)
         {
@@ -38,11 +38,11 @@ namespace Sanatorium.Views
             FiltersComboBox.SelectedIndex = 0;
 
             var db = new Database();
-            List<Resort> resorts = db.GetAllResorts();
+            Resorts = db.GetAllResorts();
             _parentWindow = parentWindow;
 
             // Отображаем санатории
-            RenderSanatoriums(resorts);
+            RenderSanatoriums(Resorts);
         }
 
         private void RenderSanatoriums(List<Resort> resorts)
@@ -161,7 +161,7 @@ namespace Sanatorium.Views
                 string tag = selectedItem.Tag as string;
 
                 // Логика сортировки или фильтрации
-                _resorts = _database.GetAllResorts();
+                Resorts = _database.GetAllResorts();
                 List<Resort> resortsSorted;
 
                 // Проверка по выбранному ComboBox
@@ -170,22 +170,22 @@ namespace Sanatorium.Views
                     switch (tag)
                     {
                         case "All":
-                            RenderSanatoriums(_resorts);
+                            RenderSanatoriums(Resorts);
                             break;
                         case "Name":
-                            resortsSorted = SanatoriumService.SortByName(_resorts);
+                            resortsSorted = SanatoriumService.SortByName(Resorts);
                             RenderSanatoriums(resortsSorted);
                             break;
                         case "Rating":
-                            resortsSorted = SanatoriumService.SortByRating(_resorts);
+                            resortsSorted = SanatoriumService.SortByRating(Resorts);
                             RenderSanatoriums(resortsSorted);
                             break;
                         case "IsNotBusy":
-                            resortsSorted = SanatoriumService.FilterByOcupancyExists(_resorts);
+                            resortsSorted = SanatoriumService.FilterByOcupancyExists(Resorts);
                             RenderSanatoriums(resortsSorted);
                             break;
                         case "IsBusy":
-                            resortsSorted = SanatoriumService.FilterByOcupancNotExists(_resorts);
+                            resortsSorted = SanatoriumService.FilterByOcupancNotExists(Resorts);
                             RenderSanatoriums(resortsSorted);
                             break;
                     }
@@ -195,23 +195,23 @@ namespace Sanatorium.Views
                     switch (tag)
                     {
                         case "Cardiovascular":
-                            resortsSorted = SanatoriumService.FilterByCategory(_resorts, "Сердечно-сосудистые");
+                            resortsSorted = SanatoriumService.FilterByCategory(Resorts, "Сердечно-сосудистые");
                             RenderSanatoriums(resortsSorted);
                             break;
                         case "Musculoskeletal":
-                            resortsSorted = SanatoriumService.FilterByCategory(_resorts, "Опорно-двигательные");
+                            resortsSorted = SanatoriumService.FilterByCategory(Resorts, "Опорно-двигательные");
                             RenderSanatoriums(resortsSorted);
                             break;
                         case "PostTraumatic":
-                            resortsSorted = SanatoriumService.FilterByCategory(_resorts, "Посттравматическая реабилитация");
+                            resortsSorted = SanatoriumService.FilterByCategory(Resorts, "Посттравматическая реабилитация");
                             RenderSanatoriums(resortsSorted);
                             break;
                         case "Strengthening":
-                            resortsSorted = SanatoriumService.FilterByCategory(_resorts, "Укрепляющая терапия");
+                            resortsSorted = SanatoriumService.FilterByCategory(Resorts, "Укрепляющая терапия");
                             RenderSanatoriums(resortsSorted);
                             break;
                         case "Respiratory":
-                            resortsSorted = SanatoriumService.FilterByCategory(_resorts, "Респираторные заболевания");
+                            resortsSorted = SanatoriumService.FilterByCategory(Resorts, "Респираторные заболевания");
                             RenderSanatoriums(resortsSorted);
                             break;
                     }

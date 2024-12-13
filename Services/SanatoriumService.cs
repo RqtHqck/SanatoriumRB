@@ -37,6 +37,18 @@ namespace Sanatorium.Services
             return resorts.Where(resort => resort.Category.Name.Equals(categName)).ToList();
         }
 
+        public static List<Resort> FilterMyBookings(List<Resort> resorts) 
+        {
+            User currentUser = UserSession.GetCurrentUser();
+            List<Guid> resortsIds = new List<Guid>();
+            List<Booking> bookings = currentUser.Bookings;
+            foreach (var booking in bookings)
+            {
+                resortsIds.Add(booking.ResortId);
+            }
+
+            return resorts.Where(r => resortsIds.Contains(r.Id)).ToList();
+        }
 
         public static bool IsBusyRoom(Room room)
         { 
@@ -86,9 +98,9 @@ namespace Sanatorium.Services
                 MessageBox.Show($"{ex.Message}");
             }
         }
-        
 
-        public static void SanatoriumCard_Click(MainWindow _parentWindow, object sender)
+
+        public static void SanatoriumCard_Click(Window parentWindow, object sender)
         {
             // Получаем объект Resort через Tag
             var button = sender as Button;
@@ -97,12 +109,31 @@ namespace Sanatorium.Services
             if (resort != null)
             {
                 // Действие при клике на карточку санатория
-                _parentWindow.SetMainContent(new BookingControl(_parentWindow, resort)); // Передаем выбранный санаторий
+                if (parentWindow is MainWindow mainWindow)
+                {
+                    mainWindow.SetMainContent(new BookingControl(mainWindow, resort)); // Передаем выбранный санаторий
+                }
+                else if (parentWindow is ProfileWindow profileWindow)
+                {
+                    profileWindow.Close();
+                    // Ищем уже открытое окно MainWindow или другое окно, в котором будем открывать новый шаблон
+                    foreach (var window in Application.Current.Windows)
+                    {
+                        if (window is MainWindow existingMainWindow)
+                        {
+                            // Обновляем содержимое в уже открытом MainWindow
+                            existingMainWindow.SetMainContent(new BookingControl(existingMainWindow, resort)); // Передаем выбранный санаторий
+                            break;
+                        }
+                    }
+
+                }
             }
             else
             {
                 MessageBox.Show("Данные о санатории не найдены.");
             }
         }
+
     }
 }
