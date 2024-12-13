@@ -10,53 +10,15 @@
   ],
   "Resorts": [
     {
-      "Id": "c00a04a9-6e63-4e88-9ffb-d8d408fb5013",
-      "Name": "Алеся Курортный комплекс",
-      "Address": "г. Москва, ул. Ленина, 18",
-      "Description": "Курортный комплекс с прекрасными удобствами.",
-      "Rating": 5,
-      "Contacts": "+7 567 890 1234",
-      "Category": {
-        "Id": "fce3509a-1412-4978-af74-7c56a6cadfe2",
-        "Name": null
-      },
-      "Rooms": [
-        {
-          "Id": "cf7a0f2d-cdc5-496a-940b-dfef7be5f19b",
-          "ResortId": "c00a04a9-6e63-4e88-9ffb-d8d408fb5013",
-          "Type": {
-            "Id": "b94adf8b-b3ab-43cf-84e3-f6706e8e0a56",
-            "Name": "Одноместный"
-          },
-          "Price": 500.0,
-          "Capacity": 1,
-          "IsBusy": true,
-          "Services": [
-            {
-              "Id": "b94adf8b-b3ab-43cf-84e3-f6706e8e0a56",
-              "Name": "Уборка",
-              "Price": 30.0
-            },
-            {
-              "Id": "d929dc3a-6ec3-44f4-b9f3-1a25d02884da",
-              "Name": "Sauna",
-              "Price": 20.0
-            }
-          ]
-        }
-      ],
-      "ImageUrl": "Alesja.jpg"
-    },
-    {
       "Id": "d914ff84-9c2d-4baf-8f63-92f1cdb43f8c",
       "Name": "Белая вежа",
-      "Address": "г. Санкт-Петербург, ул. Московская, 22",
+      "Address": "г. Минск, ул. Немига, 15",
       "Description": "Элегантный санаторий с разнообразием услуг.",
       "Rating": 4,
-      "Contacts": "+7 981 234 5678",
+      "Contacts": "+375 29 234 5678",
       "Category": {
         "Id": "1cfc986a-b854-4428-ac4f-d94fe27e6f26",
-        "Name": null
+        "Name": "Укрепляющая терапия"
       },
       "Rooms": [
         {
@@ -64,21 +26,26 @@
           "ResortId": "d914ff84-9c2d-4baf-8f63-92f1cdb43f8c",
           "Type": {
             "Id": "75fa4329-2ecf-4f01-8f26-6f3ac8b4401a",
-            "Name": "Двухместный"
+            "Name": "Базовый"
           },
-          "Price": 1200.0,
+          "Price": 120.0,
           "Capacity": 2,
           "IsBusy": true,
           "Services": [
             {
               "Id": "29a0a4f0-2767-4d3e-92fa-c1f9b0e74ac2",
-              "Name": "Массаж",
-              "Price": 50.0
+              "Name": "Прокат велосипедов",
+              "Price": 20.0
             },
             {
               "Id": "b7278df9-b88c-42ef-8857-8c7c9f4164f5",
-              "Name": "Кинотеатр",
-              "Price": 40.0
+              "Name": "Посещение зала",
+              "Price": 15.0
+            },
+            {
+              "Id": "dabd57b4-c412-4993-81b5-d53638a93fd2",
+              "Name": "Бассейн",
+              "Price": 25.0
             }
           ]
         },
@@ -87,70 +54,133 @@
           "ResortId": "d914ff84-9c2d-4baf-8f63-92f1cdb43f8c",
           "Type": {
             "Id": "b8dbfa0e-d5e2-4a57-b62d-cdb7b3b4c8be",
-            "Name": "Семейный"
+            "Name": "Стандарт"
           },
-          "Price": 1800.0,
-          "Capacity": 4,
+          "Price": 150.0,
+          "Capacity": 2,
           "IsBusy": true,
           "Services": [
             {
-              "Id": "dabd57b4-c412-4993-81b5-d53638a93fd2",
-              "Name": "Бассейн",
-              "Price": 70.0
+              "Id": "e89a4b3f-23b1-46f2-8ff5-814c1e12a2b4",
+              "Name": "Массаж",
+              "Price": 40.0
+            },
+            {
+              "Id": "3cde62d2-a8db-4933-87dc-847c58407df4",
+              "Name": "Завтрак",
+              "Price": 10.0
+            },
+            {
+              "Id": "ae2e3467-ef9d-4b8b-a5e7-0c9fd5403ab8",
+              "Name": "Wi-Fi",
+              "Price": 5.0
+            }
+          ]
+        },
+        {
+          "Id": "d456432a-b129-4d4e-8e71-38c423576987",
+          "ResortId": "d914ff84-9c2d-4baf-8f63-92f1cdb43f8c",
+          "Type": {
+            "Id": "c79a9b7d-b9b4-4c16-b6c0-2ac226218364",
+            "Name": "Люкс"
+          },
+          "Price": 300.0,
+          "Capacity": 3,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "fbd57b4c-a8c2-44d3-81a2-12348ba93fd7",
+              "Name": "Сауна",
+              "Price": 60.0
+            },
+            {
+              "Id": "8cfd6347-e329-4e1c-b4ff-7a5c0d3f0981",
+              "Name": "Спа-уход",
+              "Price": 100.0
             }
           ]
         }
       ],
       "ImageUrl": "BelajaVezha.jpg"
     },
+
     {
       "Id": "f84c5d5b-6a5d-48da-b9b1-5d4c7ef4e828",
       "Name": "Буг",
-      "Address": "г. Сочи, ул. Курортная, 10",
-      "Description": "Современный санаторий с потрясающими видами на море.",
+      "Address": "г. Брест, ул. Ленина, 5",
+      "Description": "Современный санаторий с потрясающими видами на озеро.",
       "Rating": 5,
-      "Contacts": "+7 938 765 4321",
+      "Contacts": "+375 33 765 4321",
       "Category": {
         "Id": "0539fe6b-3359-4978-b7eb-e58c5f3c5c5f",
-        "Name": null
+        "Name": "Респираторные заболевания"
       },
       "Rooms": [
         {
           "Id": "fbe9a56a-bd1d-42d4-b0f3-347fbfbed228",
           "ResortId": "f84c5d5b-6a5d-48da-b9b1-5d4c7ef4e828",
           "Type": {
-            "Id": "c79a9b7d-b9b4-4c16-b6c0-2ac226218364",
-            "Name": "Люкс"
+            "Id": "b8dbfa0e-d5e2-4a57-b62d-cdb7b3b4c8be",
+            "Name": "Премиум"
           },
-          "Price": 2500.0,
+          "Price": 200.0,
           "Capacity": 2,
           "IsBusy": true,
           "Services": [
             {
-              "Id": "b7f0c05f-e4c3-4ff5-b831-dc10fbe40a6a",
+              "Id": "c6e7d9f1-34c8-4e1b-a6f1-3abf9e834a26",
               "Name": "Завтрак",
-              "Price": 50.0
+              "Price": 15.0
             },
             {
-              "Id": "d42b9f5a-cb02-4205-bcf1-89cc52263513",
-              "Name": "Wi-Fi",
-              "Price": 10.0
+              "Id": "b7f0c05f-e4c3-4ff5-b831-dc10fbe40a6a",
+              "Name": "Бассейн",
+              "Price": 25.0
+            },
+            {
+              "Id": "3a2b4f78-e5d6-4ed9-bff5-127c2ed8c12b",
+              "Name": "Посещение спа",
+              "Price": 50.0
+            }
+          ]
+        },
+        {
+          "Id": "9c5d6784-5d7e-45b2-8a3f-6747c3c6e012",
+          "ResortId": "f84c5d5b-6a5d-48da-b9b1-5d4c7ef4e828",
+          "Type": {
+            "Id": "c79a9b7d-b9b4-4c16-b6c0-2ac226218364",
+            "Name": "Люкс"
+          },
+          "Price": 300.0,
+          "Capacity": 4,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "e4c7a9d1-f2f1-4a78-bf3c-82923a87d4f2",
+              "Name": "Сауна",
+              "Price": 70.0
+            },
+            {
+              "Id": "a8f9d0c5-d7c3-4f1a-b9c8-bcf5e874c7a6",
+              "Name": "Косметические процедуры",
+              "Price": 120.0
             }
           ]
         }
       ],
       "ImageUrl": "Bug.jpg"
     },
+
     {
       "Id": "8b9ad7e7-bc3d-46a4-96ac-24db2404b528",
       "Name": "Нафтан",
-      "Address": "г. Калуга, ул. Заводская, 5",
+      "Address": "г. Минск, ул. Заводская, 5",
       "Description": "Отличное место для отдыха и восстановления.",
       "Rating": 3,
       "Contacts": "+7 495 675 9347",
       "Category": {
         "Id": "ee91b49f-1604-481b-94af-45aa4819f381",
-        "Name": null
+        "Name": "Укрепляющая терапия"
       },
       "Rooms": [
         {
@@ -160,14 +190,24 @@
             "Id": "ef4da604-5b29-4a26-a435-20574656d22e",
             "Name": "Стандарт"
           },
-          "Price": 1500.0,
+          "Price": 150.0,
           "Capacity": 2,
           "IsBusy": true,
           "Services": [
             {
               "Id": "d329db9f-f1c4-4d61-9ed7-c3c64b091b3a",
               "Name": "Баня",
-              "Price": 60.0
+              "Price": 20.0
+            },
+            {
+              "Id": "d679abc9-a561-4a32-bb63-4e7915ea68a9",
+              "Name": "Тренажерный зал",
+              "Price": 15.0
+            },
+            {
+              "Id": "2e1b89f9-6b68-4dc5-8801-c6849b832c5f",
+              "Name": "Бассейн",
+              "Price": 25.0
             }
           ]
         },
@@ -176,12 +216,46 @@
           "ResortId": "8b9ad7e7-bc3d-46a4-96ac-24db2404b528",
           "Type": {
             "Id": "b37a5d72-597f-474b-b0da-7f43816c4167",
-            "Name": "Одноместный"
+            "Name": "Базовый"
           },
-          "Price": 800.0,
+          "Price": 100.0,
           "Capacity": 1,
           "IsBusy": true,
-          "Services": []
+          "Services": [
+            {
+              "Id": "89b4e95d-1c90-4826-9a6b-d5bf9ef7cc3e",
+              "Name": "Массаж",
+              "Price": 30.0
+            }
+          ]
+        },
+        {
+          "Id": "edf019e2-9047-4cda-9b87-479b544a5c2b",
+          "ResortId": "8b9ad7e7-bc3d-46a4-96ac-24db2404b528",
+          "Type": {
+            "Id": "3c7bc74f-b23e-4fb7-b6a5-97d495b432c8",
+            "Name": "Премиум"
+          },
+          "Price": 250.0,
+          "Capacity": 3,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "674b4892-93b6-4dbd-9c2d-33752ef7a4e1",
+              "Name": "Сауна",
+              "Price": 50.0
+            },
+            {
+              "Id": "a57c3ae4-2c4d-426d-9821-1922d7be58bc",
+              "Name": "Игровая зона",
+              "Price": 10.0
+            },
+            {
+              "Id": "3fc23145-e264-4648-b738-8d1979ed8c24",
+              "Name": "Караоке",
+              "Price": 30.0
+            }
+          ]
         }
       ],
       "ImageUrl": "Naftan.jpg"
@@ -189,13 +263,13 @@
     {
       "Id": "a4d81ad5-cab5-4f7d-b55d-df5d506dece2",
       "Name": "Сосновый бор",
-      "Address": "г. Тверь, ул. Лесная, 7",
+      "Address": "г. Гомель, ул. Лесная, 7",
       "Description": "Спокойный санаторий с природными термальными источниками.",
       "Rating": 4,
       "Contacts": "+7 920 478 2345",
       "Category": {
         "Id": "4b2c61f8-433b-4c2d-b2ec-e44ae9167b19",
-        "Name": null
+        "Name": "Респираторные заболевания"
       },
       "Rooms": [
         {
@@ -203,37 +277,89 @@
           "ResortId": "a4d81ad5-cab5-4f7d-b55d-df5d506dece2",
           "Type": {
             "Id": "96da4b4f-e3bc-4c19-8c02-1c433d0b6017",
-            "Name": "Пентхаус"
+            "Name": "Люкс"
           },
-          "Price": 3500.0,
+          "Price": 300.0,
           "Capacity": 3,
           "IsBusy": false,
           "Services": [
             {
               "Id": "a599c5c1-f4f7-4db5-8fe9-9b11b6b570b1",
               "Name": "Спортивный зал",
-              "Price": 100.0
+              "Price": 25.0
             },
             {
               "Id": "ee2f8641-2e8c-496d-ae2d-b4e9b2fa8a6b",
               "Name": "Бассейн",
-              "Price": 80.0
+              "Price": 30.0
+            },
+            {
+              "Id": "ff4c12b3-10e4-43b3-bab5-c25c35657992",
+              "Name": "Велоспорт",
+              "Price": 20.0
+            },
+            {
+              "Id": "1f6a9e3c-f725-47bc-9624-f57a6a28f648",
+              "Name": "Ресторан",
+              "Price": 50.0
+            }
+          ]
+        },
+        {
+          "Id": "bb3a91f8-38e7-45d7-b0c8-32d08e5e8c4e",
+          "ResortId": "a4d81ad5-cab5-4f7d-b55d-df5d506dece2",
+          "Type": {
+            "Id": "3c7bc74f-b23e-4fb7-b6a5-97d495b432c8",
+            "Name": "Премиум"
+          },
+          "Price": 200.0,
+          "Capacity": 2,
+          "IsBusy": true,
+          "Services": [
+            {
+              "Id": "111b7b33-d6b8-45e9-bc5f-8a9dfc6fbc13",
+              "Name": "Детская площадка",
+              "Price": 10.0
+            },
+            {
+              "Id": "4fa2eb5c-7f65-4ae2-8146-cc30555cb345",
+              "Name": "Спа",
+              "Price": 40.0
+            }
+          ]
+        },
+        {
+          "Id": "2c4c55b3-593e-4f77-989b-6fbe7ad91b7a",
+          "ResortId": "a4d81ad5-cab5-4f7d-b55d-df5d506dece2",
+          "Type": {
+            "Id": "b37a5d72-597f-474b-b0da-7f43816c4167",
+            "Name": "Базовый"
+          },
+          "Price": 120.0,
+          "Capacity": 1,
+          "IsBusy": true,
+          "Services": [
+            {
+              "Id": "3af5c7b7-fd71-409f-a28c-bd80284719e5",
+              "Name": "Массаж",
+              "Price": 30.0
             }
           ]
         }
       ],
       "ImageUrl": "SosnovyiBor.jpg"
     },
+
     {
       "Id": "c5f4c41f-4f71-4ae5-bcf7-df7b43040264",
       "Name": "Приднепровский",
-      "Address": "г. Воронеж, ул. Центральная, 14",
+      "Address": "г. Минск, ул. Центральная, 14",
       "Description": "Природный санаторий с экологически чистыми условиями.",
       "Rating": 5,
       "Contacts": "+7 473 980 1123",
       "Category": {
         "Id": "b1ba7bbf-03d7-4b8c-b9db-9c4251281323",
-        "Name": null
+        "Name": "Респираторные заболевания"
       },
       "Rooms": [
         {
@@ -243,14 +369,62 @@
             "Id": "ced0f635-cd39-4c8f-b756-394ff9083bba",
             "Name": "Люкс"
           },
-          "Price": 2200.0,
+          "Price": 280.0,
           "Capacity": 2,
           "IsBusy": true,
           "Services": [
             {
               "Id": "8f7f2de6-9f89-43bc-9f99-62c65bba6181",
               "Name": "Фитнес",
+              "Price": 100.0
+            },
+            {
+              "Id": "d6a5a2a9-d3ac-4f0f-b8d7-054a61845a90",
+              "Name": "Спа-процедуры",
+              "Price": 120.0
+            },
+            {
+              "Id": "a58b9f56-d7ea-4d01-bce2-532679e92e4b",
+              "Name": "Массаж",
+              "Price": 90.0
+            },
+            {
+              "Id": "ac22e0bb-24be-44d6-aedb-13838a0f9b89",
+              "Name": "Парковка",
+              "Price": 30.0
+            },
+            {
+              "Id": "c70efc4a-f63d-4175-8a19-07a2e93b0c87",
+              "Name": "Wi-Fi",
+              "Price": 10.0
+            }
+          ]
+        },
+        {
+          "Id": "b52d41e0-fd87-45f9-b627-0b39b5a5b7b5",
+          "ResortId": "c5f4c41f-4f71-4ae5-bcf7-df7b43040264",
+          "Type": {
+            "Id": "34ab5be1-e95f-45b1-89f7-0c99b31f1cb2",
+            "Name": "Стандарт"
+          },
+          "Price": 150.0,
+          "Capacity": 2,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "e59fc38d-9c9a-44c9-89b1-51d3e4040e8b",
+              "Name": "Бассейн",
+              "Price": 50.0
+            },
+            {
+              "Id": "d056a869-c0c8-4c6e-9a93-c978bce08739",
+              "Name": "Кинотеатр",
               "Price": 60.0
+            },
+            {
+              "Id": "5e51b478-c620-46a5-99ec-e11d7b693381",
+              "Name": "Сауна",
+              "Price": 80.0
             }
           ]
         }
@@ -260,13 +434,13 @@
     {
       "Id": "a96e45fc-0f84-40b2-bd77-7e84e56c5b71",
       "Name": "Сосны",
-      "Address": "г. Санкт-Петербург, ул. Зеленая, 12",
+      "Address": "г. Гомель, ул. Лесная, 12",
       "Description": "Уютный курорт в лесу с живописными пейзажами.",
       "Rating": 4,
       "Contacts": "+7 495 123 4567",
       "Category": {
         "Id": "a8a7bcec-572b-487f-aa51-541a5b10f0a5",
-        "Name": null
+        "Name": "Опорно-двигательные"
       },
       "Rooms": [
         {
@@ -276,7 +450,7 @@
             "Id": "34ab5be1-e95f-45b1-89f7-0c99b31f1cb2",
             "Name": "Двухместный"
           },
-          "Price": 700.0,
+          "Price": 180.0,
           "Capacity": 2,
           "IsBusy": true,
           "Services": [
@@ -289,6 +463,16 @@
               "Id": "73efb28b-1294-45c4-bd6e-062cb36277a7",
               "Name": "Wi-Fi",
               "Price": 10.0
+            },
+            {
+              "Id": "e092b4bb-b94b-426b-a65d-5c213b2e15f9",
+              "Name": "Массаж",
+              "Price": 70.0
+            },
+            {
+              "Id": "b9c5c4c8-3b59-4ca5-bb8d-9530f3577f98",
+              "Name": "Сауна",
+              "Price": 80.0
             }
           ]
         },
@@ -299,7 +483,7 @@
             "Id": "a49c8b36-9d9b-4ea9-84f0-fc42bb8e0f11",
             "Name": "Люкс"
           },
-          "Price": 1200.0,
+          "Price": 250.0,
           "Capacity": 3,
           "IsBusy": true,
           "Services": [
@@ -312,6 +496,54 @@
               "Id": "91f1f44c-0972-4235-b1b4-75f5d20c432b",
               "Name": "Парковка",
               "Price": 20.0
+            },
+            {
+              "Id": "b2c9ffb2-5ad7-4a8a-b7f9-11e5b3c04c7e",
+              "Name": "Фитнес",
+              "Price": 80.0
+            },
+            {
+              "Id": "539b849d-d2b9-41b6-91ca-3c5919c416d3",
+              "Name": "Бильярд",
+              "Price": 40.0
+            }
+          ]
+        },
+        {
+          "Id": "f0d345a1-2857-465e-a6ca-e130e86a6b75",
+          "ResortId": "a96e45fc-0f84-40b2-bd77-7e84e56c5b71",
+          "Type": {
+            "Id": "ced0f635-cd39-4c8f-b756-394ff9083bba",
+            "Name": "VIP"
+          },
+          "Price": 290.0,
+          "Capacity": 2,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "8f7f2de6-9f89-43bc-9f99-62c65bba6181",
+              "Name": "Фитнес",
+              "Price": 100.0
+            },
+            {
+              "Id": "ac22e0bb-24be-44d6-aedb-13838a0f9b89",
+              "Name": "Парковка",
+              "Price": 30.0
+            },
+            {
+              "Id": "cbdf2834-f17f-4b42-bb28-383b8b9b44c6",
+              "Name": "Массаж",
+              "Price": 90.0
+            },
+            {
+              "Id": "d10c4044-cb77-4668-9a3d-f3c1e4f32569",
+              "Name": "Сауна",
+              "Price": 80.0
+            },
+            {
+              "Id": "7dbb50b4-393b-4a72-85d9-1db4c9c2e3d5",
+              "Name": "Wi-Fi",
+              "Price": 10.0
             }
           ]
         }
@@ -321,13 +553,13 @@
     {
       "Id": "2f15bb48-3fa0-4b93-85bc-8e49d5e6e3c1",
       "Name": "Жемчужина",
-      "Address": "г. Казань, ул. Красная, 25",
+      "Address": "г. Минск, ул. Красная, 10",
       "Description": "Курорт с роскошными номерами и великолепным обслуживанием.",
       "Rating": 5,
       "Contacts": "+7 843 234 5678",
       "Category": {
         "Id": "5abcecfe-247e-4889-baf2-d15c20e5bc33",
-        "Name": null
+        "Name": "Респираторные заболевания"
       },
       "Rooms": [
         {
@@ -335,21 +567,69 @@
           "ResortId": "2f15bb48-3fa0-4b93-85bc-8e49d5e6e3c1",
           "Type": {
             "Id": "b1a2f5e6-22ea-4cc7-b347-31c42f94aaf6",
-            "Name": "Семейный"
+            "Name": "Люкс"
           },
-          "Price": 850.0,
+          "Price": 280.0,
           "Capacity": 4,
           "IsBusy": true,
           "Services": [
             {
               "Id": "d90b91fc-bc38-41a3-8c5b-8f9034360a15",
               "Name": "Гидромассаж",
+              "Price": 100.0
+            },
+            {
+              "Id": "c9b1f0ac-6066-4e97-9980-98155d52980b",
+              "Name": "Фитнес-центр",
+              "Price": 50.0
+            },
+            {
+              "Id": "a7bda08d-77d7-442b-a4bb-2d4dbfcd4567",
+              "Name": "СПА-процедуры",
+              "Price": 120.0
+            },
+            {
+              "Id": "eb91b8f2-9894-4069-9f97-879b5bcaf073",
+              "Name": "Кулинарный мастер-класс",
               "Price": 80.0
+            },
+            {
+              "Id": "9f3e1a6c-575d-44b3-9995-769d5dba8b1f",
+              "Name": "Йога",
+              "Price": 60.0
+            }
+          ]
+        },
+        {
+          "Id": "223dfda3-90c1-4cd7-87b5-9d78e3f4416a",
+          "ResortId": "2f15bb48-3fa0-4b93-85bc-8e49d5e6e3c1",
+          "Type": {
+            "Id": "ce80a0e3-33a3-41ae-83d9-30660eb8d909",
+            "Name": "Премиум"
+          },
+          "Price": 180.0,
+          "Capacity": 2,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "72e94655-7a51-4743-b973-c2d8deff80e3",
+              "Name": "Питание",
+              "Price": 40.0
+            },
+            {
+              "Id": "d9c719bf-2c8b-4552-9f3a-d4a5e5b460db",
+              "Name": "Массаж",
+              "Price": 60.0
             },
             {
               "Id": "c9b1f0ac-6066-4e97-9980-98155d52980b",
               "Name": "Фитнес-центр",
               "Price": 30.0
+            },
+            {
+              "Id": "8e10b58e-39d9-42a0-bcf7-0c8ed8359f60",
+              "Name": "Турецкая баня",
+              "Price": 70.0
             }
           ]
         }
@@ -359,13 +639,13 @@
     {
       "Id": "7d3925ad-59a7-4f0e-8c1b-16f089bd4b2e",
       "Name": "Журавушка",
-      "Address": "г. Уфа, ул. Ярослава, 18",
+      "Address": "г. Брест, ул. Советская, 18",
       "Description": "Небольшой, но уютный курорт с множеством услуг.",
       "Rating": 3,
       "Contacts": "+7 347 765 4321",
       "Category": {
         "Id": "d77cd176-2d3d-433e-a5e0-b12a58a59136",
-        "Name": null
+        "Name": "Укрепляющая терапия"
       },
       "Rooms": [
         {
@@ -375,7 +655,7 @@
             "Id": "ce80a0e3-33a3-41ae-83d9-30660eb8d909",
             "Name": "Стандарт"
           },
-          "Price": 450.0,
+          "Price": 220.0,
           "Capacity": 2,
           "IsBusy": false,
           "Services": [
@@ -383,6 +663,39 @@
               "Id": "72e94655-7a51-4743-b973-c2d8deff80e3",
               "Name": "Питание",
               "Price": 25.0
+            },
+            {
+              "Id": "d9c719bf-2c8b-4552-9f3a-d4a5e5b460db",
+              "Name": "Массаж",
+              "Price": 40.0
+            },
+            {
+              "Id": "eb91b8f2-9894-4069-9f97-879b5bcaf073",
+              "Name": "Кулинарный мастер-класс",
+              "Price": 45.0
+            }
+          ]
+        },
+        {
+          "Id": "4f6a2bdf-b7fc-4376-aad9-e6cfd3fa8c1e",
+          "ResortId": "7d3925ad-59a7-4f0e-8c1b-16f089bd4b2e",
+          "Type": {
+            "Id": "b1a2f5e6-22ea-4cc7-b347-31c42f94aaf6",
+            "Name": "Базовый"
+          },
+          "Price": 130.0,
+          "Capacity": 1,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "72e94655-7a51-4743-b973-c2d8deff80e3",
+              "Name": "Питание",
+              "Price": 20.0
+            },
+            {
+              "Id": "c9b1f0ac-6066-4e97-9980-98155d52980b",
+              "Name": "Фитнес-центр",
+              "Price": 30.0
             }
           ]
         }
@@ -392,13 +705,13 @@
     {
       "Id": "ae743a42-cfa6-4f6d-b8a9-dc4a1810c457",
       "Name": "Вяжути",
-      "Address": "г. Волгоград, ул. Пушкинская, 50",
+      "Address": "г. Минск, ул. Ленина, 25",
       "Description": "Санаторий в историческом центре города.",
       "Rating": 4,
       "Contacts": "+7 844 567 8901",
       "Category": {
         "Id": "96f1f2e2-5dbf-48d6-ba6c-2698e3d18b2c",
-        "Name": null
+        "Name": "Опорно-двигательные"
       },
       "Rooms": [
         {
@@ -406,21 +719,69 @@
           "ResortId": "ae743a42-cfa6-4f6d-b8a9-dc4a1810c457",
           "Type": {
             "Id": "b62215d8-1688-4639-a39b-89078db228c0",
-            "Name": "Однокомнатный"
+            "Name": "Базовый"
           },
-          "Price": 600.0,
+          "Price": 120.0,
           "Capacity": 2,
           "IsBusy": true,
           "Services": [
             {
               "Id": "1d6f2c2b-2f57-493a-b19d-5f0c4bc96ca7",
               "Name": "Кинотеатр",
-              "Price": 40.0
+              "Price": 20.0
             },
             {
               "Id": "ddcf278a-f3c7-47f4-b59e-7b451a16fe8b",
               "Name": "Бар",
+              "Price": 10.0
+            },
+            {
+              "Id": "32f8ab44-dc92-4a77-923b-b79e0ac83e91",
+              "Name": "СПА-процедуры",
+              "Price": 50.0
+            },
+            {
+              "Id": "eac6254b-0f63-44f2-a9ed-b57d4b5e03ad",
+              "Name": "Массаж",
+              "Price": 30.0
+            },
+            {
+              "Id": "fd7a9c58-b195-4771-b19d-e8035cdb509a",
+              "Name": "Экскурсия",
+              "Price": 25.0
+            }
+          ]
+        },
+        {
+          "Id": "8abef3c6-cb2d-43f1-88cf-f48d6c5dbeb7",
+          "ResortId": "ae743a42-cfa6-4f6d-b8a9-dc4a1810c457",
+          "Type": {
+            "Id": "b62215d8-1688-4639-a39b-89078db228c1",
+            "Name": "Стандарт"
+          },
+          "Price": 200.0,
+          "Capacity": 3,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "1d6f2c2b-2f57-493a-b19d-5f0c4bc96ca7",
+              "Name": "Бассейн",
+              "Price": 40.0
+            },
+            {
+              "Id": "ddcf278a-f3c7-47f4-b59e-7b451a16fe8c",
+              "Name": "Бар",
               "Price": 15.0
+            },
+            {
+              "Id": "9e33b92b-17c3-4687-b4d9-d1fa5b5f1e77",
+              "Name": "Фитнес",
+              "Price": 25.0
+            },
+            {
+              "Id": "9e33b92b-17c3-4687-b4d9-d1fa5b5f1e78",
+              "Name": "Чайная церемония",
+              "Price": 10.0
             }
           ]
         }
@@ -430,13 +791,13 @@
     {
       "Id": "2c022d64-e8d2-4ac5-bad6-bf2ac1fd2325",
       "Name": "Чайка",
-      "Address": "г. Краснодар, ул. Победы, 30",
+      "Address": "г. Гомель, ул. Советская, 12",
       "Description": "Курорт с прекрасными условиями для отдыха и восстановления.",
       "Rating": 5,
       "Contacts": "+7 861 234 5678",
       "Category": {
         "Id": "4f4d2e7b-ee85-4f6a-a6a1-5f0b5115afad",
-        "Name": null
+        "Name": "Сердечно-сосудистые"
       },
       "Rooms": [
         {
@@ -444,31 +805,92 @@
           "ResortId": "2c022d64-e8d2-4ac5-bad6-bf2ac1fd2325",
           "Type": {
             "Id": "874d50d7-8b72-4c3a-8f99-c85b81b01ab6",
-            "Name": "Супериор"
+            "Name": "Люкс"
           },
-          "Price": 1500.0,
+          "Price": 250.0,
           "Capacity": 2,
           "IsBusy": true,
           "Services": [
             {
               "Id": "1e88f9bc-58ab-46c7-8205-29ff3033b522",
               "Name": "Массаж",
-              "Price": 70.0
+              "Price": 80.0
             },
             {
               "Id": "56a66ff0-cff7-4d02-a3b1-09f4b324d274",
               "Name": "Экскурсия",
-              "Price": 100.0
+              "Price": 50.0
+            },
+            {
+              "Id": "bc95c9a5-547e-4853-8c38-d1ff8d06a6f1",
+              "Name": "СПА-процедуры",
+              "Price": 60.0
+            },
+            {
+              "Id": "de3c7112-5b42-4db5-b4c5-5404ad59316c",
+              "Name": "Рестораны",
+              "Price": 40.0
+            },
+            {
+              "Id": "25e019f8-b14f-45da-a404-4de26acb9ed7",
+              "Name": "Чайная церемония",
+              "Price": 15.0
+            }
+          ]
+        },
+        {
+          "Id": "5ac8cd26-35f7-4294-a204-e1794f7a08c6",
+          "ResortId": "2c022d64-e8d2-4ac5-bad6-bf2ac1fd2325",
+          "Type": {
+            "Id": "874d50d7-8b72-4c3a-8f99-c85b81b01ab7",
+            "Name": "Премиум"
+          },
+          "Price": 180.0,
+          "Capacity": 2,
+          "IsBusy": false,
+          "Services": [
+            {
+              "Id": "1e88f9bc-58ab-46c7-8205-29ff3033b522",
+              "Name": "Массаж",
+              "Price": 40.0
+            },
+            {
+              "Id": "56a66ff0-cff7-4d02-a3b1-09f4b324d274",
+              "Name": "Экскурсия",
+              "Price": 30.0
+            },
+            {
+              "Id": "bc95c9a5-547e-4853-8c38-d1ff8d06a6f1",
+              "Name": "Фитнес",
+              "Price": 25.0
+            },
+            {
+              "Id": "de3c7112-5b42-4db5-b4c5-5404ad59316c",
+              "Name": "Чайная церемония",
+              "Price": 15.0
             }
           ]
         }
       ],
       "ImageUrl": "Chayka.jpg"
     }
+
   ],
-  "ResortCategories": [],
+  "Categories": [
+    "Сердечно-сосудистые",
+    "Опорно-двигательные",
+    "Посттравматическая реабилитация",
+    "Укрепляющая терапия",
+    "Респираторные заболевания"
+  ],
+  "Types": [
+    "Базовый",
+    "Стандарт",
+    "Премиум",
+    "Люкс",
+    "VIP"
+  ],
   "Bookings": [],
   "Rooms": null,
-  "RoomTypes": [],
   "Services": null
 }
