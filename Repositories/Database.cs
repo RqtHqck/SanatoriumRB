@@ -143,5 +143,10 @@ namespace Sanatorium.Repositories
             roomToUpdate.IsBusy = true;
             SaveData();
         }
+
+        public List<ResortCategory> getResortCategories()
+        {
+            return ResortCategories;
+        }
     }
 }

@@ -5,7 +5,16 @@
       "UserName": "RqtHqck",
       "Email": "rathack13@gmail.com",
       "PasswordHash": "TvdlWt6zt75YT1dChn/rpA==:p7LVBWk524+uwzu+XeURPzNhHixYmk9RhzothSDiZdU=",
-      "Bookings": []
+      "Bookings": [
+        {
+          "Id": "a8d9b07a-7310-4276-9e6d-c1a98f3ad8c3",
+          "UserId": "a70229ec-b923-4683-9f64-0db7974f1c57",
+          "ResortId": "d914ff84-9c2d-4baf-8f63-92f1cdb43f8c",
+          "RoomId": "d456432a-b129-4d4e-8e71-38c423576987",
+          "TotalPrice": 15.0,
+          "SelectedServices": []
+        }
+      ]
     }
   ],
   "Resorts": [
@@ -86,7 +95,7 @@
           },
           "Price": 300.0,
           "Capacity": 3,
-          "IsBusy": false,
+          "IsBusy": true,
           "Services": [
             {
               "Id": "fbd57b4c-a8c2-44d3-81a2-12348ba93fd7",
@@ -103,7 +112,6 @@
       ],
       "ImageUrl": "BelajaVezha.jpg"
     },
-
     {
       "Id": "f84c5d5b-6a5d-48da-b9b1-5d4c7ef4e828",
       "Name": "Буг",
@@ -170,7 +178,6 @@
       ],
       "ImageUrl": "Bug.jpg"
     },
-
     {
       "Id": "8b9ad7e7-bc3d-46a4-96ac-24db2404b528",
       "Name": "Нафтан",
@@ -349,7 +356,6 @@
       ],
       "ImageUrl": "SosnovyiBor.jpg"
     },
-
     {
       "Id": "c5f4c41f-4f71-4ae5-bcf7-df7b43040264",
       "Name": "Приднепровский",
@@ -874,23 +880,10 @@
       ],
       "ImageUrl": "Chayka.jpg"
     }
-
   ],
-  "Categories": [
-    "Сердечно-сосудистые",
-    "Опорно-двигательные",
-    "Посттравматическая реабилитация",
-    "Укрепляющая терапия",
-    "Респираторные заболевания"
-  ],
-  "Types": [
-    "Базовый",
-    "Стандарт",
-    "Премиум",
-    "Люкс",
-    "VIP"
-  ],
+  "ResortCategories": [],
   "Bookings": [],
   "Rooms": null,
+  "RoomTypes": [],
   "Services": null
 }

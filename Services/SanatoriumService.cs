@@ -32,6 +32,12 @@ namespace Sanatorium.Services
             return resorts.Where(resort => resort.Rooms.All(room => room.IsBusy == true)).ToList();
         }
 
+        public static List<Resort> FilterByCategory(List<Resort> resorts, string categName)
+        {
+            return resorts.Where(resort => resort.Category.Name.Equals(categName)).ToList();
+        }
+
+
         public static bool IsBusyRoom(Room room)
         { 
             return room.IsBusy == true ? true : false;

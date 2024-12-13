@@ -56,10 +56,10 @@ namespace Sanatorium.Views
                     Margin = new Thickness(10),  
                     Background = new SolidColorBrush(Colors.Transparent),  
                     BorderBrush = new SolidColorBrush(Colors.Gray),  
-                    BorderThickness = new Thickness(1),  
-                    HorizontalAlignment = HorizontalAlignment.Left,  
+                    BorderThickness = new Thickness(1),
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
                     VerticalAlignment = VerticalAlignment.Top,  
-                    HorizontalContentAlignment = HorizontalAlignment.Center, 
+                    HorizontalContentAlignment = HorizontalAlignment.Left, 
                     VerticalContentAlignment = VerticalAlignment.Top  
                 };
 
