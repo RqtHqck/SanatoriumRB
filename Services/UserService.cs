@@ -16,36 +16,36 @@ namespace Sanatorium.Services
             try
             {
                 var db = new Database();
-                
+
                 User candidate = db.GetUserByEmail("rathack13@gmail.com");
                 UserSession.SetCurrentUser(candidate);
                 return true;
-                //IsValidEmail(email);
-                //IsValidPassword(candidatePassword);
+                //    IsValidEmail(email);
+                //    IsValidPassword(candidatePassword);
 
-                //var db = new Database();
-                //User candidate = db.GetUserByEmail(email);
+                //    var db = new Database();
+                //    User candidate = db.GetUserByEmail(email);
 
-                //if (candidate == null)
-                //{
-                //    throw new Exception($"Пользователь с email {email} не найден.");
-                //}
+                //    if (candidate == null)
+                //    {
+                //        throw new Exception($"Пользователь с email {email} не найден.");
+                //    }
 
 
-                //if (PasswordHashHelper.VerifyPassword(candidatePassword, candidate.PasswordHash))
-                //{
-                //    UserSession.SetCurrentUser(candidate);
-                //    return true; 
-                //}
-                //else
-                //{
-                //    throw new Exception("Неверный пароль.");
-                //}
+                //    if (PasswordHashHelper.VerifyPassword(candidatePassword, candidate.PasswordHash))
+                //    {
+                //        UserSession.SetCurrentUser(candidate);
+                //        return true;
+                //    }
+                //    else
+                //    {
+                //        throw new Exception("Неверный пароль.");
+                //    }
             }
             catch (Exception ex)
-            { 
-                MessageBox.Show($"Ошибка при логине: { ex.Message}");
-                return false; 
+            {
+                MessageBox.Show($"Ошибка при логине: {ex.Message}");
+                return false;
             }
         }
 
@@ -88,8 +88,9 @@ namespace Sanatorium.Services
                 IsValidEmail(email);
                 IsValidPassword(password);
 
-                User currentUser = UserSession.GetCurrentUser();
+                
                 var db = new Database();
+                User currentUser = db.GetUserByEmail(UserSession.GetCurrentUser().Email);
 
                 if (IsEqual(username, currentUser.UserName, false) ||
                     IsEqual(email, currentUser.Email, true))

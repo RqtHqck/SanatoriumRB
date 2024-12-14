@@ -44,7 +44,7 @@
         </ScrollViewer>
 
         <!-- Кнопка "Отменить" внизу -->
-        <Button Content="Отменить" Width="200" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+        <Button Content="Назад" Width="200" Style="{StaticResource ButtonStyle}" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
                 Margin="0,0,0,20" Background="#FF4D4D" Foreground="White" BorderBrush="#FF4D4D" BorderThickness="1"
                 Click="CancelButton_Click"/>
     </Grid>

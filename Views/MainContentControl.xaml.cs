@@ -32,8 +32,8 @@ namespace Sanatorium.Views
             InitializeComponent();
 
             _parentWindow = parentWindow;
-            User currentUser = UserSession.GetCurrentUser();
             var db = new Database();
+            User currentUser = db.GetUserByEmail(UserSession.GetCurrentUser().Email);
             List<Resort> resorts = db.GetAllResorts();
             UserNameTextBlock.Text = currentUser.UserName;
             BookingsTextBlock.Text = $"{(currentUser.Bookings != null && currentUser.Bookings.Count > 0 ? currentUser.Bookings.Count.ToString() : "0")}";

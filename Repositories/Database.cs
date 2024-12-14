@@ -10,6 +10,7 @@ using System.Windows;
 using Sanatorium.Utils;
 using Sanatorium.Services;
 using System.Security.RightsManagement;
+using System.Windows.Markup;
 
 namespace Sanatorium.Repositories
 {
@@ -42,7 +43,8 @@ namespace Sanatorium.Repositories
             {
                 // Если есть бд
                 var json = File.ReadAllText(filePath);
-                return JsonConvert.DeserializeObject<DatabaseData>(json); // Десериализация в List<User>
+                var data = JsonConvert.DeserializeObject<DatabaseData>(json); // Десериализация в List<User>
+                return data;
             }
             else
             {
@@ -66,8 +68,6 @@ namespace Sanatorium.Repositories
             { 
                 Users = Users,
                 Resorts = Resorts,
-                RoomTypes = RoomTypes,
-                ResortCategories = ResortCategories,
                 Bookings = Bookings,
             };
             var json = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented); // Сериализация в формат JSON
@@ -112,10 +112,41 @@ namespace Sanatorium.Repositories
             return Resorts;
         }
 
+        public List<Room> GetAllRooms()
+        {
+            return Rooms;
+        }
+
         public Resort GetResortById(Guid resortId)
         {
             List<Resort> resorts = GetAllResorts();
             return resorts.FirstOrDefault(resort => resort.Id == resortId);
+        }
+
+        public void DeleteBookingById(Guid bookingId)
+        {
+            User user = GetUserByEmail(UserSession.GetCurrentUser().Email);
+            var bookingForDelete = user.Bookings.FirstOrDefault(b => b.Id == bookingId);
+
+            if (bookingForDelete != null)
+            {
+                // Удаляем найденное бронирование из списка текущего пользователя
+                user.Bookings.Remove(bookingForDelete);
+                // Сохраняем изменения
+                SaveData();
+            }
+            else
+            {
+                MessageBox.Show("Booking not found.");
+            }
+
+
+        }
+
+        public Room GetRomById(Guid roomId)
+        {
+            List<Room> rooms = GetAllRooms();
+            return rooms.FirstOrDefault(room => room.Id == roomId);
         }
 
         public void UpdateResort(Guid resortId, Guid roomId)

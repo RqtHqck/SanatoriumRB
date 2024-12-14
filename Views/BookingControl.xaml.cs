@@ -149,17 +149,12 @@
             // Обработчик события, когда услуга отменена
             private void Service_Unchecked(object sender, RoutedEventArgs e)
             {
-                CalculateTotalPrice();
-            }
-
-            // Обработчик нажатия кнопки для расчета итоговой стоимости
-            private void CalculateButton_Click(object sender, RoutedEventArgs e)
-            {
-                CalculateTotalPrice();
-            }
+                double totalPrice = CalculateTotalPrice();
+                TotalPriceTextBlock.Text = $"Итоговая стоимость: {totalPrice} руб.";
+        }
 
             // Расчет итоговой стоимости, учитывая стоимость комнаты и выбранных услуг
-            private void CalculateTotalPrice()
+            private double CalculateTotalPrice()
             {
                 var totalPrice = 0.0;
 
@@ -175,8 +170,7 @@
                         }
                     }
                 }
-
-                TotalPriceTextBlock.Text = $"Итоговая стоимость: {totalPrice} руб.";
+                return totalPrice;                
             }
 
             // Обработчик возврата на основной экран
@@ -193,7 +187,8 @@
                 {
                     selectedRoom.Services = GetSelectedServices();
                     SelectedResort = _db.GetResortById(SelectedResort.Id);
-                    SanatoriumService.Booking(SelectedResort, selectedRoom, _db);
+                    double totalPrice = CalculateTotalPrice();
+                    SanatoriumService.Booking(SelectedResort, selectedRoom, _db, totalPrice);
             }
                 else
                 {

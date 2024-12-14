@@ -45,11 +45,5 @@ namespace Sanatorium.Models
             Category = category;
             ImageUrl = imageUrl;
         }
-
-        public double getTotalPrice()
-        {
-            var db = new Database();
-            return 1.0;
-        }
     }
 }

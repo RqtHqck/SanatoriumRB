@@ -5,22 +5,32 @@
       "UserName": "RqtHqck",
       "Email": "rathack13@gmail.com",
       "PasswordHash": "TvdlWt6zt75YT1dChn/rpA==:p7LVBWk524+uwzu+XeURPzNhHixYmk9RhzothSDiZdU=",
+      "Bookings": []
+    },
+    {
+      "Id": "6010b9de-de60-4010-976d-27ab49d76e62",
+      "UserName": "Гоша Дударь",
+      "Email": "ahiles@gmail.com",
+      "PasswordHash": "ENYsDztElJwoMekNPfFUjw==:8VHiCrL4oTTz7fEx/0Eyj3Ev8Ae8YUBmB4wu4RZSRDA=",
       "Bookings": [
         {
-          "Id": "a8d9b07a-7310-4276-9e6d-c1a98f3ad8c3",
-          "UserId": "a70229ec-b923-4683-9f64-0db7974f1c57",
-          "ResortId": "d914ff84-9c2d-4baf-8f63-92f1cdb43f8c",
-          "RoomId": "d456432a-b129-4d4e-8e71-38c423576987",
+          "Id": "ef9faef5-e62e-482a-a18e-c882d2f10338",
+          "UserId": "6010b9de-de60-4010-976d-27ab49d76e62",
+          "ResortId": "7d3925ad-59a7-4f0e-8c1b-16f089bd4b2e",
+          "RoomId": "4f6a2bdf-b7fc-4376-aad9-e6cfd3fa8c1e",
           "TotalPrice": 15.0,
-          "SelectedServices": []
-        },
-        {
-          "Id": "1cd2e427-3e63-44b9-a708-b115ad9e2322",
-          "UserId": "a70229ec-b923-4683-9f64-0db7974f1c57",
-          "ResortId": "f84c5d5b-6a5d-48da-b9b1-5d4c7ef4e828",
-          "RoomId": "9c5d6784-5d7e-45b2-8a3f-6747c3c6e012",
-          "TotalPrice": 15.0,
-          "SelectedServices": []
+          "SelectedServices": [
+            {
+              "Id": "72e94655-7a51-4743-b973-c2d8deff80e3",
+              "Name": "Питание",
+              "Price": 20.0
+            },
+            {
+              "Id": "c9b1f0ac-6066-4e97-9980-98155d52980b",
+              "Name": "Фитнес-центр",
+              "Price": 30.0
+            }
+          ]
         }
       ]
     }
@@ -253,7 +263,7 @@
           },
           "Price": 250.0,
           "Capacity": 3,
-          "IsBusy": false,
+          "IsBusy": true,
           "Services": [
             {
               "Id": "674b4892-93b6-4dbd-9c2d-33752ef7a4e1",
@@ -296,7 +306,7 @@
           },
           "Price": 300.0,
           "Capacity": 3,
-          "IsBusy": false,
+          "IsBusy": true,
           "Services": [
             {
               "Id": "a599c5c1-f4f7-4db5-8fe9-9b11b6b570b1",
@@ -423,7 +433,7 @@
           },
           "Price": 150.0,
           "Capacity": 2,
-          "IsBusy": false,
+          "IsBusy": true,
           "Services": [
             {
               "Id": "e59fc38d-9c9a-44c9-89b1-51d3e4040e8b",
@@ -699,7 +709,7 @@
           },
           "Price": 130.0,
           "Capacity": 1,
-          "IsBusy": false,
+          "IsBusy": true,
           "Services": [
             {
               "Id": "72e94655-7a51-4743-b973-c2d8deff80e3",
@@ -861,7 +871,7 @@
           },
           "Price": 180.0,
           "Capacity": 2,
-          "IsBusy": false,
+          "IsBusy": true,
           "Services": [
             {
               "Id": "1e88f9bc-58ab-46c7-8205-29ff3033b522",
@@ -889,9 +899,9 @@
       "ImageUrl": "Chayka.jpg"
     }
   ],
-  "ResortCategories": [],
+  "ResortCategories": null,
   "Bookings": [],
   "Rooms": null,
-  "RoomTypes": [],
+  "RoomTypes": null,
   "Services": null
 }

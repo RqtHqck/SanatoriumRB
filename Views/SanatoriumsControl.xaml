@@ -102,8 +102,8 @@
                     <ComboBox Style="{StaticResource ComboBoxStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" 
                           SelectionChanged="ComboBox_SelectionChanged" Width="250" x:Name="SortingComboBox">
                         <ComboBoxItem Content="Все" Tag="All"/>
-                        <ComboBoxItem Content="Сортировка по названию" Tag="Name"/>
-                        <ComboBoxItem Content="Сортировка по рейтингу" Tag="Rating"/>
+                        <ComboBoxItem Content="По названию" Tag="Name"/>
+                        <ComboBoxItem Content="По рейтингу" Tag="Rating"/>
                         <ComboBoxItem Content="Показать не занятые" Tag="IsNotBusy"/>
                         <ComboBoxItem Content="Показать занятые" Tag="IsBusy"/>
                     </ComboBox>
@@ -114,7 +114,7 @@
             <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Padding="5" Margin="20,10,10,0" Grid.Row="0" Grid.Column="1">
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                     <!-- Подпись для фильтрации -->
-                    <TextBlock Text="Фильтрация" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                    <TextBlock Text="Категории" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,5"/>
                     <!-- Кнопка фильтрации -->
                     <ComboBox Style="{StaticResource ComboBoxStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" 
                           SelectionChanged="ComboBox_SelectionChanged" Width="250" x:Name="FiltersComboBox">

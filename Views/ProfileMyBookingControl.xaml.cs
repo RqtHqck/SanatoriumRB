@@ -33,8 +33,17 @@ namespace Sanatorium.Views
         {
             InitializeComponent();
             _parentWindow = parentWindow;
-            var db = new Database();
-            Resorts = SanatoriumService.FilterMyBookings(db.GetAllResorts());
+            try
+            {
+
+                Resorts = SanatoriumService.FilterMyBookings(_database);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+                throw;
+            }
+            
             RenderSanatoriums(Resorts);
         }
 
@@ -42,102 +51,167 @@ namespace Sanatorium.Views
         {
             // Очистить старые элементы
             SanatoriumListPanel.Children.Clear();
-
-            foreach (var resort in resorts)
+            try
             {
-                var button = new Button
+                foreach (var resort in resorts)
                 {
-                    Width = Double.NaN,
-                    Height = 150, // Установите фиксированную высоту для кнопки
-                    Padding = new Thickness(15),
-                    Background = new SolidColorBrush(Colors.White),
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    HorizontalContentAlignment = HorizontalAlignment.Stretch,
-                    VerticalContentAlignment = VerticalAlignment.Top,
-                    Margin = new Thickness(0, 0, 0, 10), // Добавляем отступ между карточками
-                    BorderBrush = new SolidColorBrush(Colors.LightGray), // Легкая граница
-                    BorderThickness = new Thickness(1)
-                };
+                    
+                    var currentUser = _database.GetUserByEmail(UserSession.GetCurrentUser().Email);
+                    var userBookings = currentUser.Bookings.Where(b => b.ResortId == resort.Id).ToList();
+                    foreach (var booking in userBookings)
+                    {
 
-                // Используем StackPanel для вертикального размещения элементов внутри кнопки
-                var stackPanel = new StackPanel
-                {
-                    Orientation = Orientation.Vertical,
-                };
+                        var mainButton = new Button
+                        {
+                            Width = Double.NaN,
+                            Height = 150, // Установите фиксированную высоту для кнопки
+                            Padding = new Thickness(15),
+                            Background = new SolidColorBrush(Colors.White),
+                            HorizontalAlignment = HorizontalAlignment.Stretch,
+                            VerticalAlignment = VerticalAlignment.Top,
+                            HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                            VerticalContentAlignment = VerticalAlignment.Top,
+                            Margin = new Thickness(0, 0, 0, 10), // Добавляем отступ между карточками
+                            BorderBrush = new SolidColorBrush(Colors.LightGray), // Легкая граница
+                            BorderThickness = new Thickness(1)
+                        };
 
-                // Добавим строку с категорией
-                var categoryTextBlock = new TextBlock
-                {
-                    Text = $"Категория: {resort.Category.Name}", // Используем поле Category из Resort
-                    FontSize = 14,
-                    FontWeight = FontWeights.Bold,
-                    Foreground = new SolidColorBrush(Colors.Gray),
-                    HorizontalAlignment = HorizontalAlignment.Left
-                };
-                stackPanel.Children.Add(categoryTextBlock);
+                        // Добавляем обработчик для клика на карточку
+                        mainButton.Click += (s, e) => SanatoriumCard_Click(s, e);
 
-                // Название санатория
-                var nameTextBlock = new TextBlock
-                {
-                    Text = resort.Name, // Используем поле Name из Resort
-                    FontSize = 20,
-                    FontWeight = FontWeights.Bold,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Foreground = new SolidColorBrush(Colors.Black)
-                };
-                stackPanel.Children.Add(nameTextBlock);
+                        // Используем Grid для карточки
+                        var grid = new Grid
+                        {
+                            HorizontalAlignment = HorizontalAlignment.Stretch,
+                            VerticalAlignment = VerticalAlignment.Center,
+                        };
 
-                // Описание санатория
-                var descriptionTextBlock = new TextBlock
-                {
-                    Text = resort.Description, // Используем поле Description из Resort
-                    FontSize = 16,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Foreground = new SolidColorBrush(Colors.Black)
-                };
-                stackPanel.Children.Add(descriptionTextBlock);
+                        // Определяем две колонки
+                        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }); // Содержимое
+                        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0, GridUnitType.Auto) });  // Кнопка удаления
 
-                // Рейтинг санатория
-                var ratingTextBlock = new TextBlock
-                {
-                    Text = $"Рейтинг: {resort.Rating}", // Используем поле Rating из Resort
-                    FontSize = 16,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Foreground = new SolidColorBrush(Colors.Black)
-                };
-                stackPanel.Children.Add(ratingTextBlock);
+                        // Панель с содержимым карточки
+                        var contentPanel = new StackPanel
+                        {
+                            Orientation = Orientation.Vertical,
+                            HorizontalAlignment = HorizontalAlignment.Stretch,
+                            VerticalAlignment = VerticalAlignment.Center
+                        };
 
-                // Контакты санатория
-                var contactsTextBlock = new TextBlock
-                {
-                    Text = $"Контакты: {resort.Contacts}", // Используем поле Contacts из Resort
-                    FontSize = 16,
-                    Margin = new Thickness(0, 10, 0, 0),
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Foreground = new SolidColorBrush(Colors.Black)
-                };
-                stackPanel.Children.Add(contactsTextBlock);
+                        // Добавляем элементы в contentPanel
+                        var categoryTextBlock = new TextBlock
+                        {
+                            Text = $"{resort.Category.Name}", // Используем поле Category из Resort
+                            FontSize = 14,
+                            FontWeight = FontWeights.Bold,
+                            Foreground = new SolidColorBrush(Colors.Gray),
+                            HorizontalAlignment = HorizontalAlignment.Left
+                        };
+                        contentPanel.Children.Add(categoryTextBlock);
 
-                // Устанавливаем содержимое кнопки как StackPanel
-                button.Content = stackPanel;
+                        var nameTextBlock = new TextBlock
+                        {
+                            Text = resort.Name, // Используем поле Name из Resort
+                            FontSize = 20,
+                            FontWeight = FontWeights.Bold,
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            Foreground = new SolidColorBrush(Colors.Black)
+                        };
+                        contentPanel.Children.Add(nameTextBlock);
 
-                button.Tag = resort; // Устанавливаем данные санатория в Tag
-                button.Click += SanatoriumCard_Click; // Устанавливаем обработчик события для клика
+                        var ratingTextBlock = new TextBlock
+                        {
+                            Text = $"Рейтинг: {resort.Rating}", // Используем поле Rating из Resort
+                            FontSize = 16,
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            Foreground = new SolidColorBrush(Colors.Black)
+                        };
+                        contentPanel.Children.Add(ratingTextBlock);
 
-                // Добавляем кнопку в список
-                SanatoriumListPanel.Children.Add(button);
+                        var contactsTextBlock = new TextBlock
+                        {
+                            Text = $"Контакты: {resort.Contacts}", // Используем поле Contacts из Resort
+                            FontSize = 16,
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            Foreground = new SolidColorBrush(Colors.Black)
+                        };
+                        contentPanel.Children.Add(contactsTextBlock);
+
+                        var deleteButton = new Button
+                        {
+                            Content = "Удалить",
+                            Width = 100,
+                            Height = 30,
+                            Background = new SolidColorBrush(Color.FromRgb(255, 77, 77)),
+                            Foreground = new SolidColorBrush(Colors.White),
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            VerticalAlignment = VerticalAlignment.Center,
+                            Margin = new Thickness(10, 0, 0, 0)
+                        };
+
+
+                        // Присваиваем ID брони в Tag кнопки
+                        deleteButton.Tag = booking.Id; // Присваиваем ID брони в Tag
+
+                        // Обработчик клика по кнопке удаления
+                        deleteButton.Click += (s, e) =>
+                        {
+                            DeleteBooking(s);
+                            e.Handled = true; // Предотвращаем распространение события на карточку
+                        };
+
+                        // Добавляем содержимое в первую колонку
+                        Grid.SetColumn(contentPanel, 0);
+                        grid.Children.Add(contentPanel);
+
+                        // Добавляем кнопку во вторую колонку
+                        Grid.SetColumn(deleteButton, 1);
+                        grid.Children.Add(deleteButton);
+
+                        // Устанавливаем содержимое кнопки как Grid
+                        mainButton.Content = grid;
+
+                        // Устанавливаем данные санатория в Tag
+                        mainButton.Tag = resort;
+
+                        // Добавляем кнопку в список
+                        SanatoriumListPanel.Children.Add(mainButton);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+                throw;
             }
         }
 
-
+        private void DeleteBooking(object sender)
+        {
+            try
+            {
+                var button = sender as Button;
+                if (button != null)
+                {
+                    Guid bookingId = (Guid)button.Tag;
+                    _database.DeleteBookingById(bookingId); // Удаляем бронирование из базы данных
+                    _database = new Database();
+                    Resorts = SanatoriumService.FilterMyBookings(_database); // Перезагружаем данные
+                    RenderSanatoriums(Resorts); // Перерисовываем интерфейс с обновленными данными
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+                throw;
+            }
+        }
 
 
         private void SanatoriumCard_Click(object sender, RoutedEventArgs e)
         {
             SanatoriumService.SanatoriumCard_Click(_parentWindow, sender);
         }
-
 
         public void CancelButton_Click(object sender, RoutedEventArgs e)
         {

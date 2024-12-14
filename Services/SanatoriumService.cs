@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using Sanatorium.Models;
 using Sanatorium.Repositories;
 using Sanatorium.Views;
+using Sanatorium.Utils;
 
 namespace Sanatorium.Services
 {
@@ -37,11 +38,14 @@ namespace Sanatorium.Services
             return resorts.Where(resort => resort.Category.Name.Equals(categName)).ToList();
         }
 
-        public static List<Resort> FilterMyBookings(List<Resort> resorts) 
+        public static List<Resort> FilterMyBookings(Database db) 
         {
+            List<Resort> resorts = db.GetAllResorts();
+            User user = db.GetUserByEmail(UserSession.GetCurrentUser().Email);
             User currentUser = UserSession.GetCurrentUser();
             List<Guid> resortsIds = new List<Guid>();
             List<Booking> bookings = currentUser.Bookings;
+
             foreach (var booking in bookings)
             {
                 resortsIds.Add(booking.ResortId);
@@ -61,11 +65,11 @@ namespace Sanatorium.Services
             return roomServices;
         }
 
-        public static void Booking(Resort resort, Room selectedRoom, Database db)
+        public static void Booking(Resort resort, Room selectedRoom, Database db, double totalPrice)
         {
             try 
             {
-                User user = UserSession.GetCurrentUser(); // Получаем текущего пользователя
+                User user = db.GetUserByEmail(UserSession.GetCurrentUser().Email); // Получаем текущего пользователя
                 List<Service> selectedServices = GetSelectedServices(selectedRoom); // Список выбранных услуг
 
                 if (selectedRoom == null)
@@ -80,7 +84,7 @@ namespace Sanatorium.Services
                     return;
                 }
 
-                var newBooking = new Booking(user.Id, selectedRoom.ResortId, selectedRoom.Id, 15, selectedServices);
+                var newBooking = new Booking(user.Id, selectedRoom.ResortId, selectedRoom.Id, totalPrice, selectedServices);
                 user.Bookings.Add(newBooking);
                 try
                 {
