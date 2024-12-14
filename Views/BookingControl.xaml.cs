@@ -17,7 +17,7 @@
         /// </summary>
         public partial class BookingControl : UserControl
         {
-            private readonly Database _db;
+            private Database _database = new Database();
             private Resort SelectedResort { get; set; }
             private readonly MainWindow _parentWindow;
 
@@ -182,13 +182,15 @@
             // Обработчик бронирования
             private void BookingButton_Click(object sender, RoutedEventArgs e)
             {
-                var _db = new Database();
                 if (RoomComboBox.SelectedItem is ComboBoxItem selectedItem && selectedItem.Tag is Room selectedRoom)
                 {
                     selectedRoom.Services = GetSelectedServices();
-                    SelectedResort = _db.GetResortById(SelectedResort.Id);
+                    SelectedResort = _database.GetResortById(SelectedResort.Id);
                     double totalPrice = CalculateTotalPrice();
-                    SanatoriumService.Booking(SelectedResort, selectedRoom, _db, totalPrice);
+                    SanatoriumService.Booking(SelectedResort, selectedRoom, _database, totalPrice);
+                    _database = new Database();
+                    DisplayResortInfo();
+                    LoadRoomsForResort();
             }
                 else
                 {

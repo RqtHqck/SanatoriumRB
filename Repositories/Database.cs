@@ -112,11 +112,6 @@ namespace Sanatorium.Repositories
             return Resorts;
         }
 
-        public List<Room> GetAllRooms()
-        {
-            return Rooms;
-        }
-
         public Resort GetResortById(Guid resortId)
         {
             List<Resort> resorts = GetAllResorts();
@@ -128,11 +123,19 @@ namespace Sanatorium.Repositories
             User user = GetUserByEmail(UserSession.GetCurrentUser().Email);
             var bookingForDelete = user.Bookings.FirstOrDefault(b => b.Id == bookingId);
 
+
             if (bookingForDelete != null)
             {
+                var resortId = bookingForDelete.ResortId;
+                var RoomId = bookingForDelete.RoomId;
+
+                Resort resort = GetResortById(resortId);
+                var room = resort.Rooms.FirstOrDefault(r => r.Id == RoomId);
+                room.IsBusy = false;
+
+
                 // Удаляем найденное бронирование из списка текущего пользователя
                 user.Bookings.Remove(bookingForDelete);
-                // Сохраняем изменения
                 SaveData();
             }
             else
@@ -141,12 +144,6 @@ namespace Sanatorium.Repositories
             }
 
 
-        }
-
-        public Room GetRomById(Guid roomId)
-        {
-            List<Room> rooms = GetAllRooms();
-            return rooms.FirstOrDefault(room => room.Id == roomId);
         }
 
         public void UpdateResort(Guid resortId, Guid roomId)
@@ -173,11 +170,6 @@ namespace Sanatorium.Repositories
 
             roomToUpdate.IsBusy = true;
             SaveData();
-        }
-
-        public List<ResortCategory> getResortCategories()
-        {
-            return ResortCategories;
         }
     }
 }

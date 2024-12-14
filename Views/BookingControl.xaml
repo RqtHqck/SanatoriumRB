@@ -106,7 +106,7 @@
         <!-- Кнопка для подсчета стоимости -->
         <Grid Margin="20,415,0,0">
             <Button x:Name="BookingButton" Content="Бронировать" Style="{StaticResource ButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                    FontSize="14" Padding="10" Background="#FF6F61" Cursor="Hand" Width="282" Click="BookingButton_Click"/>
+                    FontSize="14" Padding="10" Background="#FF6F61" Cursor="Hand" Width="282" Click="BookingButton_Click" Margin="0,10,0,0"/>
         </Grid>
     </Grid>
 </UserControl>
